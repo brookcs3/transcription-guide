@@ -1,0 +1,348 @@
+/* Mac Transcription Guide - Professional Blog CSS */
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #f1f5f9;
+    --accent-color: #dc2626;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #059669;
+    --warning-color: #d97706;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Navigation */
+.main-nav {
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.main-nav li {
+    margin: 0 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.main-nav a:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: var(--secondary-color);
+    margin: 2rem 0;
+    border-radius: 12px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Article Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.article-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.category {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.date {
+    color: var(--text-light);
+}
+
+.article-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.article-card h3 a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.article-card h3 a:hover {
+    color: var(--primary-color);
+}
+
+.article-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.article-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.article-tags span {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Comparison Cards */
+.comparison {
+    border-left: 4px solid var(--accent-color);
+}
+
+.vs-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.comparison-highlights {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.highlight.privacy {
+    background: #dcfce7;
+    color: var(--success-color);
+}
+
+.highlight.performance {
+    background: #fef3c7;
+    color: var(--warning-color);
+}
+
+.highlight.cost {
+    background: #dbeafe;
+    color: var(--primary-color);
+}
+
+.highlight.speed {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+/* Section Headers */
+section h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem 0;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Use Cases */
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.use-case {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.use-case:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.use-case h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.use-case p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.use-case a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.use-case a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+footer a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav li {
+        margin: 0.5rem 0;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SEO and Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
