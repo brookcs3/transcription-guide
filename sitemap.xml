@@ -1,45 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage -->
   <url>
     <loc>https://transcription.1oa.cc/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro - Privacy-First AI Transcription for Mac</image:title>
+      <image:caption>Official app icon for Scriber Pro transcription software</image:caption>
+    </image:image>
   </url>
+
+  <!-- Main Articles -->
+  <url>
+    <loc>https://transcription.1oa.cc/posts/best-mac-apps-try-2025.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro in Best Mac Apps 2025</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/pixelmator-pro.png</image:loc>
+      <image:title>Pixelmator Pro - Professional Photo Editing</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://transcription.1oa.cc/posts/best-offline-transcription-mac-2025.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro - Best Offline Transcription Mac 2025</image:title>
+    </image:image>
+  </url>
+
+  <!-- Comparison Pages -->
+  <url>
+    <loc>https://transcription.1oa.cc/comparisons/scriber-pro-vs-otter.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro vs Otter.ai Comparison</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/otter-ai.png</image:loc>
+      <image:title>Otter.ai Logo</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://transcription.1oa.cc/comparisons/scriber-pro-vs-rev.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro vs Rev.com Comparison</image:title>
+    </image:image>
+  </url>
+
+  <!-- Supporting Pages -->
   <url>
     <loc>https://transcription.1oa.cc/about.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://transcription.1oa.cc/contact.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://transcription.1oa.cc/privacy.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/posts/best-mac-apps-try-2025.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/posts/best-offline-transcription-mac-2025.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/comparisons/scriber-pro-vs-otter.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
 </urlset>
