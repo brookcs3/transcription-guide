@@ -73,6 +73,51 @@
     </image:image>
   </url>
 
+  <!-- Guide Pages -->
+  <url>
+    <loc>https://transcription.1oa.cc/guides/why-offline-transcription.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro - Why Choose Offline Transcription</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://transcription.1oa.cc/guides/transcription-lawyers-mac.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro for Legal Professionals</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://transcription.1oa.cc/guides/medical-transcription-mac.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro for Healthcare Professionals</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://transcription.1oa.cc/guides/journalist-transcription-mac.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://transcription.1oa.cc/assets/images/app-icons/scriber-pro.png</image:loc>
+      <image:title>Scriber Pro for Journalists</image:title>
+    </image:image>
+  </url>
+
   <!-- Supporting Pages -->
   <url>
     <loc>https://transcription.1oa.cc/about.html</loc>
