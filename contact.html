@@ -7,6 +7,7 @@
     <meta name="description" content="Contact Mac Transcription Guide for questions about our reviews, suggest software for testing, or report issues with our analysis.">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/genimages/favicon.png">
     <link rel="canonical" href="https://transcription.1oa.cc/contact.html">
     <script type="application/ld+json">
     {
@@ -69,26 +70,33 @@
     }
     </script>
     <style>
-        .contact-content {
-            max-width: 700px;
+        .article-content {
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem 1rem;
         }
 
-        .contact-header {
+        .article-header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--secondary-color);
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+            color: white;
             border-radius: 12px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .contact-section {
             background: white;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .contact-grid {
@@ -103,6 +111,7 @@
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
+            border: 1px solid var(--border-color);
         }
 
         .contact-method h3 {
@@ -124,6 +133,16 @@
             padding: 1.5rem;
             border-radius: 8px;
             margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -155,10 +174,13 @@
         </div>
     </nav>
 
-    <main class="contact-content">
-        <header class="contact-header">
+    <main class="article-content">
+        <header class="article-header">
             <h1>Contact Mac Transcription Guide</h1>
             <p>We value feedback from our readers and the tech community</p>
+            <div style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">
+                Updated: September 2025
+            </div>
         </header>
 
         <section class="contact-section">
