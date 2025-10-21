@@ -5,9 +5,6 @@
 User-agent: *
 Allow: /
 
-# Optimize crawl budget - prioritize important pages
-Crawl-delay: 1
-
 # Block crawling of admin/system files (if any exist)
 Disallow: /admin/
 Disallow: /.git/
