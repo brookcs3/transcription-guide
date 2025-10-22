@@ -1,0 +1,23 @@
+So in this problem we're going to learn to calculate delays for the nth packet arriving at a queue in a router and then getting transmitted out one by one. So we've got 45 packets entering a queue at the same time. Each packet has a data length of three maybe bytes.
+
+The transmission rate of the link is 1. 3 gigabytes per second. And the question we might have is, what is the delay for packet number 19?
+
+So before we start throwing numbers around, let's take a look at this problem conceptually. We're going to have, there's our router and we're going to be sending packets out. So the first packet comes in and its delay, of course, is zero because it can be sent immediately.
+
+So that's zero, this is delay. The second packet comes in. Its delay is simply equal to the time it takes the first packet to be transmitted.
+
+Which we know from our earlier reading is L over R. Length of the data divided by the transmission rate will give us the delay while packet two waits for packet one to be sent. And packet number three is 2L over R because it must wait for packet one and packet two to be sent before it can be sent.
+
+And so on. And you can see the pattern begin to develop packet four. We'll have 3L over R.
+
+And packet N will have N minus one times L over R for the delay. It's always one less than the number of the packet. So at this point we can see that all we really need to calculate is L over R and then apply N minus one to get the delay for any packet we choose.
+
+So let's go ahead and do that for L over R. We've got L in maybe bytes, we've got R in gigabits per second. So we need to convert three maybe bytes to bits and then we can do the division.
+
+So we've now got three maybe bytes and we're going to multiply by one O two four gigabytes is one maybe byte. And we're going to again multiply one O two four bytes is one kibbe byte. And finally we want to get bits.
+
+So we're going to further multiply eight bits is one byte. And at the end of all that math you can see that all these units will cancel except for bits. And we wind up with two five one six five eight two four bits.
+
+And now we're going to go N minus one L over R for the 19th packet. So it's going to be 18 for this is packet 19. And that's the delay delay for packet 19 we're going to go 18 times twenty five one six five eight two four bits.
+
+And one point three times ten to the ninth bits. You do this math you wind up with oh sorry that's bits per second you do this math you wind up with seconds the bits cancel. And when you do the math you wind up with three forty eight point four milliseconds that is the delay experienced by the 19th packet being sent out by this router.

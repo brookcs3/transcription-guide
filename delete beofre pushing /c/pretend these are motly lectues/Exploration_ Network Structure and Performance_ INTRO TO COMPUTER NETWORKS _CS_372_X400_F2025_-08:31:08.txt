@@ -1,0 +1,41 @@
+We've got a single link, we've got 10 packets arriving at to that link at the same time from multiple sources. And we are asking what the, we are first asking what the transmission delay is for the, for each packet. And so what we want to do is we want to calculate the length of a packet and divide by the transmission rate and figure out how long it takes to send a single packet.
+
+So we'll go ahead and do that. We've got T trans. The mission is L over R.
+
+And that is 1250 bytes times 8 bits, divided by 1 byte to get that in bits. And then we've got 1 times 10 to the seventh bits per second for the transmission rate. And if we do that calculation, we've got that equal to 0.
+
+001 second, which is 1 millisecond. So that is the time it takes to send out one single packet. Now let's ask what the queuing delay is for the third packet here.
+
+So that's our next question. So we know how long it takes to send one packet L over R. So let's imagine our first packet arrives at the router.
+
+It's delay is zero. There are no other packets in front, out it goes. So we'll call this delay.
+
+Our second packet arrives. It's delay is actually the time it takes to send the first packet. So it's waiting for the first packet to be transmitted.
+
+And then packet number two can go ahead and be transmitted. So it's delay is L over R. Packet number three has to wait for two packets to be transmitted.
+
+So you get two L over R. And so on, the tenth packet is in fact nine L over R. If you want to generalize this, it would be N minus one times L over R.
+
+So let's go and calculate for the third packet. It's simply twice one millisecond. So for T queuing delay this time, for the third packet, there's a lot of writing there to set that up.
+
+But the queuing delay for the third packet is two L over R. So it's just two times one millisecond or two milliseconds. So that's the queuing delay.
+
+Now, if we want to go ahead and calculate, let's ask the question, what is the end, end to end. End to end delay, let's say we want to get that third packet over here to another router. So what's the end to end delay?
+
+Well, it shows up here and it's got to wait for packets one and two to be transmitted. Then it gets transmitted itself. Then it has to propagate over the link, over the media, to the next router.
+
+So we've got queuing delay plus transmission delay plus propagation delay. So let's go ahead and add that up. So first, I guess we need to calculate our propagation delay is propagation delay equals D over S, you'll recall.
+
+So D over S is 2,000 Km times 1,000 meters per kilometer. And that's all divided by 2. 5 times 10 to the eighth.
+
+That's the speed of light. Meters per second. And so we'll get out seconds out of that.
+
+And we end up with eight milliseconds. Zero takes our D over S is in fact eight milliseconds to send something 2,000 Km. So let's see, do we know enough now to calculate end to end delay?
+
+I think we do. So we've got queuing delay plus transmission delay plus propagation delay. So our queuing delay, we already calculated, it's two milliseconds.
+
+So let's go ahead and say T and two and that equals queuing delay, two milliseconds plus transmission, because we have to transmit that third packet. It waited for one and two, that's our queuing delay. Now it's going to be transmitted and that takes one millisecond.
+
+We already calculated for one packet. And finally we're going to add our propagation delay. So here's packet number three and it's got to go across.
+
+Packet number three now it's got to go out on the wire and that in fact takes eight milliseconds. So total end-to-end delay is 11 milliseconds. And that's how we calculate that.

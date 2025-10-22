@@ -1,0 +1,37 @@
+In this example, we've got two host computers, host X and host Y. They are both transmitting data at the same time, and the data is headed for this router, and then out over a single link. Because we have a packet switched network, we have statistical multiplexing, which means that packets from X and Y are interleaved.
+
+If both X and Y are transmitting at full throttle at the same time to this router, their packets will be interleaved. So X is trying to transmit file X, and that is this many bytes, 8 million, 4 and 8,000, 7 and 60 bytes. File Y, Y is transmitting file Y, Y is 14,360 bytes.
+
+And a couple of other pieces of information, our link transmit rate here, the router is transmitting at 10 megabits per second. And this is our packet. We've got the entire length of the packet, including the header and the data, is 1024 bytes, and the data are payload is 1000 bytes.
+
+So let's say that we want to ask the question, when will file Y, when will Y or host Y be done transmitting? And to do that, let's first calculate the amount of time it takes to transmit just one packet. So that's a T transmission for just one packet is L over R.
+
+And so we've got 1024 bytes times 8 bits. Per byte, and that's going to be divided by 10 megabits per second, or 10 million bits. Per second.
+
+So if we do the math on that, we end up with 0. 8 megabits per second. 192.
+
+0. 8192, little seconds. Is the amount of time to transmit one packet?
+
+So we want to ask the question, however, when will Y be done? Now, recall this was one packet. So naively, we might say, well, I can divide the size of file Y by the data payload in packets, and come up with a number of packets for file Y.
+
+And in fact, we will do that. So file Y is 14, 360 bytes, and we're going to divide that number by our payload that every packet can carry, so 1,000 bytes. And we're going to wind up with about 14.
+
+36. But we want to round up to 15 packets because it will take 15 packets to send all the data because we had some leftover, can't fit it all into 14 packets. We need 15 packets.
+
+So now we know how much it will, or how long, or how many packets it will take, excuse me, to send all of file Y. But recall that in our problem, because we have statistical multiplexing, we're interleaving packets from both file X and file Y. So in fact, in this scenario, it's going to take twice the amount of packets, or 30 packets.
+
+So the total T trans for file Y is going to be 30 packets, times this amount of time. 0. 8192 milliseconds.
+
+And we go ahead and do that math, and we end up with approximately 25 milliseconds. So let's ask a question, how long does it take for file X to be done transmitting? Let's go ahead and figure out how many packets file X would take to be sent.
+
+So we're going to go ahead and divide this number here, file X, we're going to divide that by 1000, because that's our capability, that's our payload per packet. We do that and then the number of packets, for file X is, it's 84, 86 packets. Because file X was a much larger file than file Y.
+
+So 84, 86 packets. So we could just multiply that by the time, but remember we've already sent 15 packets through, and those were interleaved with file Y, and it took 25 milliseconds. So I can go 84, 86 minus 15, and that's the remaining amount of packets.
+
+So this is the number of packets left to send. Remember, we've already sent out 15 of file X, 15 of file Y, file Y is now done. So we're going to subtract 15 from 84, 86, and we should have 84, 71.
+
+71 packets left to send. Okay, so that's what's left. So now we can do our calculation.
+
+So the T for transmission file X is 84, 71 times, our 0. 8192 milliseconds to send a single packet, 0. 8192 milliseconds, and we're going to go ahead and add in the time it took to send just those 15 packets.
+
+So we are going to add 25 milliseconds back in, and this is our final answer for how long it takes to send file X, and we end up with 6. 96 for seconds. And that's how that problem has worked.
