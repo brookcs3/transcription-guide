@@ -62,6 +62,47 @@
     }
     </script>
 
+    <!-- Schema.org Review -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+            "@type": "SoftwareApplication",
+            "name": "Otter.ai",
+            "applicationCategory": "ProductivityApplication",
+            "operatingSystem": "macOS",
+            "offers": {
+                "@type": "Offer",
+                "price": "20.00",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "20.00",
+                    "priceCurrency": "USD",
+                    "billingDuration": "P1M"
+                }
+            }
+        },
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "7.5",
+            "bestRating": "10"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Mac Transcription Guide"
+        },
+        "reviewBody": "Otter.ai offers solid transcription accuracy with good features, but its cloud-based processing raises privacy concerns for sensitive audio. While it works well for general use, the requirement to upload all audio to cloud servers makes it unsuitable for confidential meetings, legal recordings, or HIPAA-protected information.",
+        "datePublished": "2025-09-28",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mac Transcription Guide"
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" href="../assets/genimages/favicon.png">
     <script defer src="../assets/js/main.js"></script>
@@ -118,12 +159,27 @@
                 </div>
             </header>
 
-            <section>
+            <!-- Table of Contents -->
+            <div class="toc" style="background: var(--secondary-color); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+                <h3 style="margin-top: 0; color: var(--primary-color); font-size: 1.3rem;">Table of Contents</h3>
+                <ul style="list-style: none; padding-left: 0; margin: 0;">
+                    <li style="margin: 0.75rem 0;"><a href="#what-is-otter" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ What is Otter.ai?</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#key-features" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Key Features</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#privacy-concerns" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Privacy Concerns</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#pricing" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Pricing</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#performance" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Performance Comparison</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#pros-cons" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Pros & Cons</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#recommendation" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Recommendation</a></li>
+                    <li style="margin: 0.75rem 0;"><a href="#alternatives" style="color: var(--text-color); text-decoration: none; transition: color 0.2s;">→ Alternatives</a></li>
+                </ul>
+            </div>
+
+            <section id="what-is-otter">
                 <h2>What is Otter.ai?</h2>
                 <p>Otter.ai is a popular cloud-based transcription service that uses AI to convert speech to text. It offers real-time transcription, keyword search, and collaboration features. While it works well for general use, its reliance on cloud processing makes it unsuitable for sensitive or confidential audio.</p>
             </section>
 
-            <section>
+            <section id="key-features">
                 <h2>Key Features</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
                     <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
@@ -145,7 +201,7 @@
                 </div>
             </section>
 
-            <section>
+            <section id="privacy-concerns">
                 <h2>Privacy Concerns</h2>
                 <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 2rem; margin: 2rem 0;">
                     <h3 style="color: #dc2626; margin-bottom: 1rem;">⚠️ Important Privacy Notice</h3>
@@ -159,7 +215,7 @@
                 </div>
             </section>
 
-            <section>
+            <section id="pricing">
                 <h2>Pricing</h2>
                 <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin: 2rem 0;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
@@ -182,7 +238,7 @@
                 </div>
             </section>
 
-            <section>
+            <section id="performance">
                 <h2>Performance Comparison</h2>
                 <div style="overflow-x: auto; margin: 2rem 0;">
                     <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -224,7 +280,7 @@
                 </div>
             </section>
 
-            <section>
+            <section id="pros-cons">
                 <h2>Pros & Cons</h2>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
                     <div>
@@ -248,21 +304,21 @@
                 </div>
             </section>
 
-            <section style="background: var(--secondary-color); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+            <section id="recommendation" style="background: var(--secondary-color); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
                 <h2>Recommendation</h2>
                 <p>Otter.ai is a good choice for non-sensitive, general-purpose transcription where privacy isn't a concern. However, for confidential audio (legal, medical, business), we strongly recommend offline alternatives like <a href="scriber-pro-review.html" style="color: var(--primary-color); font-weight: 600;">Scriber Pro</a> that process locally on your device.</p>
             </section>
 
-            <section>
+            <section id="alternatives">
                 <h2>Alternatives</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
                     <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
                         <h3>Scriber Pro (Recommended)</h3>
-                        <p>Best offline alternative with superior privacy and speed. <a href="scriber-pro-review.html">Read our review →</a></p>
+                        <p>Best offline alternative with superior privacy and speed. <a href="scriber-pro-review.html">Read our Scriber Pro review: privacy-first offline transcription with 10-50x real-time speed</a></p>
                     </div>
                     <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
                         <h3>Rev.com</h3>
-                        <p>Human transcription service for highest accuracy. <a href="rev-review.html">Read our review →</a></p>
+                        <p>Human transcription service for highest accuracy. <a href="rev-review.html">Read our Rev.com review: 99% human accuracy, $1.50/minute pricing, and 12-24 hour turnaround</a></p>
                     </div>
                 </div>
             </section>
