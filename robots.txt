@@ -1,32 +1,6 @@
-# Robots.txt for Mac Transcription Guide
-# SEO optimized for Google, Bing, and other search engines
-
-# Allow all crawlers to access everything
 User-agent: *
-Allow: /
+Disallow:
 
-# Block crawling of admin/system files (if any exist)
-Disallow: /admin/
-Disallow: /.git/
-Disallow: /.DS_Store
-Disallow: /assets/.DS_Store
+Sitemap: https://transcription.1oa.cc/sitemap.xml 
+Sitemap: http://transcription.1oa.cc/sitemap.xml 
 
-# Allow all image crawling for Google Images
-User-agent: Googlebot-Image
-Allow: /assets/images/
-
-# Social media crawlers
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Sitemaps
-Sitemap: https://transcription.1oa.cc/sitemap.xml
-
-# Host declaration for clarity
-Host: transcription.1oa.cc
