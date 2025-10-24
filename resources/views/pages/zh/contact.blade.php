@@ -1,0 +1,92 @@
+@extends('layouts.app')
+
+@section('title', '联系 Mac 转录软件指南')
+@section('meta_description', '如有问题、反馈或合作机会,请联系 Mac 转录软件指南。我们随时为您的转录软件需求提供帮助。')
+
+@push('head')
+<link rel="alternate" hreflang="en" href="https://transcription.1oa.cc/contact">
+<link rel="alternate" hreflang="zh-CN" href="https://transcription.1oa.cc/zh/contact">
+@endpush
+
+@section('breadcrumbs')
+<a href="{{ route('zh.home') }}">首页</a> &gt; <span>联系我们</span>
+@endsection
+
+@section('content')
+<div style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+    <header style="text-align: center; margin-bottom: 3rem; padding: 3rem 2rem; background: linear-gradient(135deg, var(--primary-color), #1d4ed8); color: white; border-radius: 12px;">
+        <h1>联系 Mac 转录软件指南</h1>
+        <p>我们重视读者和技术社区的反馈</p>
+        <div style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">
+            更新时间: 2025年9月
+        </div>
+    </header>
+
+    <section style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; margin: 3rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <h2>联系我们</h2>
+        <p>Mac 转录软件指南致力于提供准确、有用和公正的转录软件及相关 Mac 应用分析。我们欢迎读者的问题、建议和更正。</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div style="background: var(--secondary-color); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📧 一般咨询</h3>
+                <p><strong>电子邮件:</strong> hello@mactranscriptionguide.com</p>
+                <p>有关我们评测、方法或一般反馈的问题</p>
+            </div>
+
+            <div style="background: var(--secondary-color); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🔍 评测请求</h3>
+                <p><strong>电子邮件:</strong> reviews@mactranscriptionguide.com</p>
+                <p>建议我们测试和评测的软件</p>
+            </div>
+
+            <div style="background: var(--secondary-color); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">⚠️ 更正</h3>
+                <p><strong>电子邮件:</strong> corrections@mactranscriptionguide.com</p>
+                <p>报告事实错误或过时信息</p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-left: 4px solid var(--primary-color); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+            <h3>响应时间</h3>
+            <ul>
+                <li><strong>一般咨询:</strong> 2-3 个工作日内</li>
+                <li><strong>评测请求:</strong> 1 周内(我们可能不会评测所有建议的软件)</li>
+                <li><strong>更正:</strong> 紧急问题 24-48 小时内</li>
+            </ul>
+        </div>
+    </section>
+
+    <section style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; margin: 3rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <h2>我们正在寻找什么</h2>
+
+        <h3>软件评测建议</h3>
+        <p>我们始终对测试新 Mac 软件感兴趣,特别是:</p>
+        <ul>
+            <li>注重隐私的生产力工具</li>
+            <li>具有独特功能的专业软件</li>
+            <li>解决特定工作流程问题的应用</li>
+            <li>对常见任务采用创新方法的软件</li>
+        </ul>
+
+        <div style="background: #fef3c7; border-left: 4px solid var(--warning-color); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+            <h3>沟通指南</h3>
+            <ul>
+                <li>请在主题行中具体说明</li>
+                <li>包含相关详情和背景</li>
+                <li>对于软件建议,请告诉我们为什么认为它值得评测</li>
+                <li>对于更正,请包括具体的页面引用和来源链接</li>
+            </ul>
+        </div>
+    </section>
+
+    <section style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; margin: 3rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <h2>编辑独立性</h2>
+        <p>Mac 转录软件指南保持严格的编辑独立性。我们不接受付费评测,也不允许软件供应商影响我们的分析或结论。</p>
+
+        <p>所有软件均以全额零售价购买用于测试。我们的收入来自教育内容和咨询服务,而非我们评测的产品公司。</p>
+
+        <h3>专业服务</h3>
+        <p>如果组织对隐私咨询或定制软件评估服务感兴趣,请通过 <strong>consulting@mactranscriptionguide.com</strong> 联系我们,详细说明您的要求。</p>
+    </section>
+</div>
+@endsection

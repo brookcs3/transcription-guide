@@ -1,0 +1,179 @@
+
+
+<?php $__env->startSection('title', 'Mac Transcription Software Reviews 2025 - Expert Analysis'); ?>
+<?php $__env->startSection('meta_description', 'Comprehensive reviews of Mac transcription software. Expert analysis of offline apps, cloud services, and human transcription comparing privacy, accuracy, and pricing.'); ?>
+<?php $__env->startSection('meta_keywords', 'Mac transcription reviews, offline transcription apps, cloud transcription services, transcription software comparison'); ?>
+
+<?php $__env->startSection('og_title', 'Mac Transcription Software Reviews 2025'); ?>
+<?php $__env->startSection('og_description', 'Expert reviews comparing offline and cloud transcription solutions for Mac'); ?>
+<?php $__env->startSection('og_url', 'https://transcription.1oa.cc/reviews'); ?>
+
+<?php $__env->startPush('head'); ?>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Mac Transcription Software Reviews",
+    "description": "Expert reviews of Mac transcription software categorized by type",
+    "url": "https://transcription.1oa.cc/reviews"
+}
+</script>
+<?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('breadcrumbs'); ?>
+<a href="<?php echo e(url('/')); ?>">Home</a> &gt; <span>Reviews</span>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<article style="max-width: 1200px; margin: 0 auto;">
+    <header style="text-align: center; margin: 3rem 0;">
+        <h1>Mac Transcription Software Reviews 2025</h1>
+        <p style="font-size: 1.2rem; color: var(--text-light); margin-top: 1rem;">Expert analysis of offline apps, cloud services, and human transcription for Mac users. Independent testing focused on privacy, accuracy, and value.</p>
+    </header>
+
+    <section id="offline-apps" style="margin: 4rem 0;">
+        <h2>Offline Transcription Apps</h2>
+        <h3 style="color: var(--text-light); font-weight: 400; margin-top: -0.5rem; margin-bottom: 2rem;">Privacy-first local processing - no cloud uploads required</h3>
+
+        <div style="display: grid; gap: 2rem;">
+            <article class="article-card" style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center;">
+                <img src="<?php echo e(asset('images/app-icons/scriber-pro.png')); ?>" alt="Scriber Pro" style="width: 100px; height: 100px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <h3 style="margin: 0;"><a href="<?php echo e(url('/reviews/scriber-pro-review')); ?>">Scriber Pro</a></h3>
+                        <span style="background: var(--success-color); color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem;">A+ Rating</span>
+                    </div>
+                    <p style="margin: 0.5rem 0;">The fastest offline transcription app for Mac with complete privacy protection. Blazing speed with proprietary chunking technology and 96%+ accuracy.</p>
+                    <div style="margin-top: 1rem;">
+                        <span style="color: var(--success-color); font-weight: 600;">✓ Privacy Winner</span> •
+                        <span style="color: var(--success-color); font-weight: 600;">✓ Speed Winner</span> •
+                        <span style="color: var(--success-color); font-weight: 600;">✓ Best Value</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <strong>Price:</strong> $3.99 one-time purchase |
+                        <strong>Speed:</strong> 10-50x real-time |
+                        <strong>Accuracy:</strong> 96-98%
+                    </div>
+                    <a href="<?php echo e(url('/reviews/scriber-pro-review')); ?>" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;">Read complete Scriber Pro review: privacy analysis, accuracy testing, and pricing breakdown →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="cloud-services" style="margin: 4rem 0;">
+        <h2>Cloud-Based AI Transcription</h2>
+        <h3 style="color: var(--text-light); font-weight: 400; margin-top: -0.5rem; margin-bottom: 2rem;">Collaborative features with privacy trade-offs</h3>
+
+        <div style="display: grid; gap: 2rem;">
+            <article class="article-card" style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center;">
+                <img src="<?php echo e(asset('images/app-icons/otter.png')); ?>" alt="Otter.ai" style="width: 100px; height: 100px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <h3 style="margin: 0;"><a href="<?php echo e(url('/reviews/otter-ai-review')); ?>">Otter.ai</a></h3>
+                        <span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem;">D Rating</span>
+                    </div>
+                    <p style="margin: 0.5rem 0;">Cloud-based transcription with team collaboration features. Recent federal class-action lawsuit raises serious privacy concerns.</p>
+                    <div style="margin-top: 1rem;">
+                        <span style="color: var(--accent-color); font-weight: 600;">⚠ Privacy Concerns</span> •
+                        <span style="color: var(--accent-color); font-weight: 600;">⚠ Legal Issues</span> •
+                        <span>Subscription Required</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <strong>Price:</strong> $20/month subscription |
+                        <strong>Speed:</strong> 5-6 min for 15 min audio |
+                        <strong>Accuracy:</strong> 85-90%
+                    </div>
+                    <a href="<?php echo e(url('/reviews/otter-ai-review')); ?>" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;">Read Otter.ai review including lawsuit details and privacy analysis →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="human-services" style="margin: 4rem 0;">
+        <h2>Human Transcription Services</h2>
+        <h3 style="color: var(--text-light); font-weight: 400; margin-top: -0.5rem; margin-bottom: 2rem;">Professional human transcribers for maximum accuracy</h3>
+
+        <div style="display: grid; gap: 2rem;">
+            <article class="article-card" style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center;">
+                <img src="<?php echo e(asset('images/app-icons/rev.png')); ?>" alt="Rev.com" style="width: 100px; height: 100px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <h3 style="margin: 0;"><a href="<?php echo e(url('/reviews/rev-review')); ?>">Rev.com</a></h3>
+                        <span style="background: #f59e0b; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem;">C+ Rating</span>
+                    </div>
+                    <p style="margin: 0.5rem 0;">Professional human transcription with 99% accuracy guarantee. Expensive but highly accurate for critical projects.</p>
+                    <div style="margin-top: 1rem;">
+                        <span style="color: var(--success-color); font-weight: 600;">✓ Highest Accuracy</span> •
+                        <span>24-hour turnaround</span> •
+                        <span style="color: var(--accent-color); font-weight: 600;">⚠ Expensive</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <strong>Price:</strong> $1.50/minute |
+                        <strong>Turnaround:</strong> 24+ hours |
+                        <strong>Accuracy:</strong> 99%+ guaranteed
+                    </div>
+                    <a href="<?php echo e(url('/reviews/rev-review')); ?>" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;">Read Rev.com review: human transcription accuracy vs cost analysis →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; border-radius: 16px; margin: 4rem 0; text-align: center;">
+        <h2 style="color: white; margin-bottom: 1rem;">Our Top Recommendation</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">For most Mac users, Scriber Pro offers the best combination of speed, privacy, and value. Process sensitive audio with complete confidence.</p>
+        <a href="https://apps.apple.com/us/app/scriber-pro/id6751968220?mt=12" target="_blank"
+           style="display: inline-block; background: white; color: #667eea; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+            Get Scriber Pro on Mac App Store
+        </a>
+    </section>
+
+    <section style="margin: 4rem 0;">
+        <h2>Compare Transcription Services</h2>
+        <h3 style="color: var(--text-light); font-weight: 400; margin-top: -0.5rem; margin-bottom: 2rem;">Side-by-side comparisons to help you choose</h3>
+
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <thead style="background: var(--primary-color); color: white;">
+                    <tr>
+                        <th style="padding: 1rem; text-align: left;">Service</th>
+                        <th style="padding: 1rem; text-align: center;">Privacy</th>
+                        <th style="padding: 1rem; text-align: center;">Speed</th>
+                        <th style="padding: 1rem; text-align: center;">Accuracy</th>
+                        <th style="padding: 1rem; text-align: center;">Cost</th>
+                        <th style="padding: 1rem; text-align: center;">Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1rem; font-weight: 600;">Scriber Pro</td>
+                        <td style="padding: 1rem; text-align: center;">✅ Local</td>
+                        <td style="padding: 1rem; text-align: center;">⚡ 10-50x</td>
+                        <td style="padding: 1rem; text-align: center;">96-98%</td>
+                        <td style="padding: 1rem; text-align: center;">$3.99</td>
+                        <td style="padding: 1rem; text-align: center;"><strong>A+</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1rem;">Otter.ai</td>
+                        <td style="padding: 1rem; text-align: center;">❌ Cloud</td>
+                        <td style="padding: 1rem; text-align: center;">5-6 min</td>
+                        <td style="padding: 1rem; text-align: center;">85-90%</td>
+                        <td style="padding: 1rem; text-align: center;">$20/mo</td>
+                        <td style="padding: 1rem; text-align: center;">D</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;">Rev.com</td>
+                        <td style="padding: 1rem; text-align: center;">❌ Cloud</td>
+                        <td style="padding: 1rem; text-align: center;">24+ hrs</td>
+                        <td style="padding: 1rem; text-align: center;">99%+</td>
+                        <td style="padding: 1rem; text-align: center;">$1.50/min</td>
+                        <td style="padding: 1rem; text-align: center;">C+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</article>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Owner\transcription-guide\WORKING\transcription-guide-laravel\resources\views/pages/reviews.blade.php ENDPATH**/ ?>

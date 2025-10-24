@@ -1,0 +1,335 @@
+@extends('layouts.app')
+
+@section('title', 'Mac 转录软件指南 - 评测、对比与隐私分析')
+@section('description', '寻找最佳 Mac 转录软件?对比离线与云端应用,阅读隐私分析,获取专业人士的专家指南。')
+@section('keywords', 'Mac 转录软件, Mac 离线转录, 私密转录应用, Mac 语音转文字, 转录软件评测')
+
+@section('head')
+<link rel="canonical" href="https://transcription.1oa.cc/zh/" />
+<link rel="alternate" hreflang="en" href="https://transcription.1oa.cc/" />
+<link rel="alternate" hreflang="zh-CN" href="https://transcription.1oa.cc/zh/" />
+<link rel="alternate" hreflang="x-default" href="https://transcription.1oa.cc/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Mac 转录软件指南 - 专家评测与对比">
+<meta property="og:description" content="专注隐私的 Mac 转录软件独立评测">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://transcription.1oa.cc/zh">
+
+<!-- Schema.org markup -->
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "WebSite",
+    "name": "Mac Transcription Guide",
+    "description": "Expert reviews and comparisons of Mac transcription software",
+    "url": "https://transcription.1oa.cc",
+    "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "Organization",
+    "name": "Mac Transcription Guide",
+    "url": "https://transcription.1oa.cc",
+    "logo": "{{ asset('assets/genimages/security-icon.png') }}",
+    "description": "Independent reviews and analysis of Mac transcription software with focus on privacy and offline solutions",
+    "foundingDate": "2025",
+    "knowsAbout": [
+        "Mac transcription software",
+        "Offline AI transcription",
+        "Privacy-first technology",
+        "HIPAA compliant transcription",
+        "Attorney-client privilege protection"
+    ],
+    "sameAs": [
+        "https://transcription.1oa.cc/"
+    ],
+    "contactPoint": {
+        "@@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://transcription.1oa.cc/contact.html"
+    }
+}
+</script>
+@endsection
+
+@section('content')
+
+<!-- Hero Banner -->
+<section style="margin: -1rem -1rem 2rem -1rem;">
+    <img src="{{ asset('assets/genimages/hero-banner.png') }}" alt="Mac 转录软件评测" style="width: 100%; height: auto; display: block; border-radius: 0 0 16px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+</section>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>最佳 Mac 转录软件:评测、对比与隐私分析</h1>
+    <p class="subtitle" style="font-size: 1.2rem; color: var(--text-light); margin-top: 1rem;">专为专业人士提供的离线和云端转录应用独立测试。专家评测、详细对比和隐私优先的推荐。</p>
+</section>
+
+<!-- Featured Snippet: Pricing Comparison Table -->
+<section style="margin: 3rem 0;">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">转录软件价格对比</h2>
+    <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">对比成本:一次性购买 vs 订阅 vs 按分钟付费</p>
+    <div style="background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+            <thead>
+                <tr style="background: linear-gradient(135deg, var(--primary-color), #1d4ed8); color: white;">
+                    <th style="padding: 1rem; text-align: left; border-bottom: 3px solid var(--primary-color); font-size: 1.1rem;">软件</th>
+                    <th style="padding: 1rem; text-align: left; border-bottom: 3px solid var(--primary-color); font-size: 1.1rem;">定价模式</th>
+                    <th style="padding: 1rem; text-align: left; border-bottom: 3px solid var(--primary-color); font-size: 1.1rem;">费用</th>
+                    <th style="padding: 1rem; text-align: left; border-bottom: 3px solid var(--primary-color); font-size: 1.1rem;">年度成本</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #f0f9ff;">
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color); font-weight: 600;">
+                        Scriber Pro
+                    </td>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color);">
+                        <span style="background: #059669; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">一次性购买</span>
+                    </td>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color);"><strong style="color: #059669; font-size: 1.2rem;">$3.99</strong><br><small style="color: var(--text-light);">无限转录</small></td>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color);"><strong style="color: #059669;">$3.99</strong><br><small style="color: var(--text-light);">终身使用</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color); font-weight: 600;">
+                        Otter.ai
+                    </td>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color);">
+                        <span style="background: #d97706; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">订阅制</span>
+                    </td>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color);"><strong style="font-size: 1.2rem;">$20/月</strong><br><small style="color: var(--text-light);">持续付费</small></td>
+                    <td style="padding: 1rem; border-bottom: 1px solid var(--border-color);"><strong style="color: #dc2626;">$240/年</strong><br><small style="color: var(--text-light);">是 Scriber Pro 的 60 倍</small></td>
+                </tr>
+                <tr style="background: #fafafa;">
+                    <td style="padding: 1rem; font-weight: 600;">
+                        Rev.com
+                    </td>
+                    <td style="padding: 1rem;">
+                        <span style="background: #dc2626; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">按使用付费</span>
+                    </td>
+                    <td style="padding: 1rem;"><strong style="font-size: 1.2rem;">$1.50/分钟</strong><br><small style="color: var(--text-light);">人工转录</small></td>
+                    <td style="padding: 1rem;"><strong style="color: #dc2626;">$900+/年</strong><br><small style="color: var(--text-light);">基于每月 10 小时</small></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f9ff; border-radius: 8px;">
+            <p style="margin: 0; text-align: center; color: var(--text-color); font-weight: 600;">
+                💡 <strong>成本分析:</strong>与 Rev.com 相比,Scriber Pro 仅需转录 3 分钟即可收回成本;与 Otter.ai 相比,仅需 6 天即可收回成本。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Featured App Spotlight -->
+<section class="app-spotlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 3rem 1rem; margin: 3rem 0; border-radius: 16px;">
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
+            <img src="{{ asset('assets/images/app-icons/scriber-pro.png') }}" alt="Scriber Pro" style="width: 80px; height: 80px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+            <div style="text-align: left;">
+                <h2 style="margin: 0; font-size: 2.2rem;">Scriber Pro</h2>
+                <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">隐私优先的 Mac AI 转录软件</p>
+            </div>
+        </div>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">速度最快、准确度最高的离线转录应用。完全隐私保护地处理敏感音频——无云端上传、无数据共享、无隐私风险。</p>
+        <a href="https://apps.apple.com/cn/app/scriber-pro/id6751968220?mt=12" target="_blank"
+           style="display: inline-block; background: white; color: #667eea; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.2s ease;">
+            📱 在 Mac App Store 获取 Scriber Pro
+        </a>
+    </div>
+</section>
+
+<!-- Featured Snippet: Ranked List -->
+<section style="margin: 3rem 0;">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">最佳 Mac 转录软件 (2025)</h2>
+    <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">基于隐私、准确度、速度和性价比的专家测试排名</p>
+    <div style="background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <ol style="list-style: none; counter-reset: ranking; padding: 0; margin: 0;">
+            <li style="counter-increment: ranking; margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-left: 4px solid #059669; border-radius: 8px; position: relative;">
+                <div style="position: absolute; top: -10px; left: -15px; background: #059669; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">1</div>
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; color: var(--primary-color);">
+                    Scriber Pro
+                    <span style="background: #059669; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem; font-weight: 600;">综合最佳</span>
+                </h3>
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: #fbbf24; font-size: 1.2rem;">★★★★★</span>
+                    <span style="color: var(--text-light); font-size: 0.9rem; margin-left: 0.5rem;">A+ 评级 • 9.8/10</span>
+                </div>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>最适合:</strong>注重隐私的专业人士、律师、医生、记者、学生</p>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>获胜原因:</strong>100% 离线处理,10-50 倍实时速度,$3.99 一次性付款(无订阅),96-98% 准确度,符合 HIPAA 标准</p>
+                <p style="margin: 0.5rem 0;"><strong style="color: #059669;">价格:</strong>$3.99 一次性购买</p>
+            </li>
+
+            <li style="counter-increment: ranking; margin-bottom: 2rem; padding: 1.5rem; background: #fafafa; border-left: 4px solid #64748b; border-radius: 8px; position: relative;">
+                <div style="position: absolute; top: -10px; left: -15px; background: #64748b; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">2</div>
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; color: var(--text-color);">
+                    Rev.com
+                    <span style="background: #d97706; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem; font-weight: 600;">准确度最高</span>
+                </h3>
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: #fbbf24; font-size: 1.2rem;">★★★★☆</span>
+                    <span style="color: var(--text-light); font-size: 0.9rem; margin-left: 0.5rem;">A- 评级 • 8.5/10</span>
+                </div>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>最适合:</strong>需要 99%+ 准确度的关键文档(法律证词、医疗记录)</p>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>权衡:</strong>人工转录=最高准确度,但价格昂贵($1.50/分钟)且速度慢(24-48 小时交付)</p>
+                <p style="margin: 0.5rem 0;"><strong>价格:</strong>$1.50/分钟</p>
+            </li>
+
+            <li style="counter-increment: ranking; margin-bottom: 2rem; padding: 1.5rem; background: #fafafa; border-left: 4px solid #d97706; border-radius: 8px; position: relative;">
+                <div style="position: absolute; top: -10px; left: -15px; background: #d97706; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">3</div>
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; color: var(--text-color);">
+                    Otter.ai
+                    <span style="background: #667eea; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem; font-weight: 600;">团队协作</span>
+                </h3>
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: #fbbf24; font-size: 1.2rem;">★★☆☆☆</span>
+                    <span style="color: var(--text-light); font-size: 0.9rem; margin-left: 0.5rem;">D 评级 • 5.5/10</span>
+                </div>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>最适合:</strong>需要实时协作的团队(不推荐用于敏感数据)</p>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>主要问题:</strong>因隐私侵犯面临联邦诉讼,85-90% 准确度,$20/月订阅,需要云端上传</p>
+                <p style="margin: 0.5rem 0;"><strong>价格:</strong>$20/月</p>
+            </li>
+
+            <li style="counter-increment: ranking; padding: 1.5rem; background: #fafafa; border-left: 4px solid #94a3b8; border-radius: 8px; position: relative;">
+                <div style="position: absolute; top: -10px; left: -15px; background: #94a3b8; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">4</div>
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; color: var(--text-color);">
+                    MacWhisper
+                    <span style="background: #94a3b8; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem; font-weight: 600;">最佳免费</span>
+                </h3>
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: #fbbf24; font-size: 1.2rem;">★★★☆☆</span>
+                    <span style="color: var(--text-light); font-size: 0.9rem; margin-left: 0.5rem;">C+ 评级 • 7.0/10</span>
+                </div>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>最适合:</strong>转录需求较少的普通用户</p>
+                <p style="margin: 0.5rem 0; line-height: 1.6;"><strong>局限性:</strong>基础功能,处理速度较慢,文件格式支持有限,更新较少</p>
+                <p style="margin: 0.5rem 0;"><strong>价格:</strong>免费(基础版)/$29(专业版)</p>
+            </li>
+        </ol>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #dbeafe, #f0f9ff); border-radius: 8px; text-align: center;">
+            <p style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 600; color: var(--text-color);">
+                🏆 <strong>编辑推荐:</strong>Scriber Pro 以 $3.99 的价格提供无与伦比的性价比和专业级隐私保护
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Articles -->
+<section id="reviews" class="featured-articles">
+    <h2>最新评测与指南</h2>
+    <div class="articles-grid">
+
+        <article class="article-card">
+            <div class="article-meta">
+                <span class="category">2025 最佳应用</span>
+                <span class="date">2025年9月</span>
+            </div>
+            <h3><a href="{{ url('/zh/reviews/best-mac-apps-try-2025') }}">2025 年值得尝试的 6 款最佳 Mac 应用</a></h3>
+            <p>提升生产力和创造力的必备软件。从设计工具到隐私优先的转录应用,这些应用将改变您的工作流程。</p>
+            <div class="article-tags">
+                <span>生产力</span>
+                <span>应用</span>
+                <span>2025</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="article-meta">
+                <span class="category">综合评测</span>
+                <span class="date">2025年9月</span>
+            </div>
+            <h3><a href="{{ url('/zh/reviews/best-offline-transcription-mac-2025') }}">2025 年最佳 Mac 离线转录应用</a></h3>
+            <p>无需联网即可使用的 Mac 转录应用完整对比。我们测试了速度、准确度和隐私功能,并与云端服务进行了对比。</p>
+            <div class="article-tags">
+                <span>离线</span>
+                <span>隐私</span>
+                <span>Mac</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="article-meta">
+                <span class="category">隐私分析</span>
+                <span class="date">2025年9月</span>
+            </div>
+            <h3><a href="{{ url('/zh/reviews/privacy-risks-cloud-transcription') }}">云端转录服务的隐私风险</a></h3>
+            <p>为什么将音频上传到云端服务会带来法律和隐私风险。律师、医生和记者的必读内容。</p>
+            <div class="article-tags">
+                <span>隐私</span>
+                <span>云端</span>
+                <span>法律</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- Software Comparisons -->
+<section id="comparisons" class="comparisons-section">
+    <h2>软件对比</h2>
+    <div class="articles-grid">
+
+        <article class="article-card comparison">
+            <a href="{{ url('/zh/comparisons/scriber-pro-vs-otter.html') }}" style="text-decoration: none; color: inherit;">
+                <img src="{{ asset('assets/genimages/comparison-scriber-otter.png') }}" alt="Scriber Pro vs Otter.ai" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                <p>隐私、价格、准确度和速度全面对比。了解为什么专业人士选择离线转录而非云端服务。</p>
+                <div class="comparison-highlights">
+                    <span class="highlight privacy">隐私优先</span>
+                    <span class="highlight performance">性能测试</span>
+                </div>
+            </a>
+        </article>
+
+        <article class="article-card comparison">
+            <a href="{{ url('/zh/comparisons/scriber-pro-vs-rev.html') }}" style="text-decoration: none; color: inherit;">
+                <img src="{{ asset('assets/genimages/comparison-scriber-rev.png') }}" alt="Scriber Pro vs Rev.com" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                <p>一次性购买 vs 订阅费用。即时结果 vs 等待交付。Mac 用户的完整对比。</p>
+                <div class="comparison-highlights">
+                    <span class="highlight cost">成本分析</span>
+                    <span class="highlight speed">速度测试</span>
+                </div>
+            </a>
+        </article>
+
+        <article class="article-card">
+            <div class="article-meta">
+                <span class="category">分析</span>
+                <span class="date">2025年9月</span>
+            </div>
+            <h3><a href="{{ url('/zh/guides/why-offline-transcription.html') }}">为什么选择离线转录</a></h3>
+            <p>本地处理的完整理由:详解隐私、速度、成本和可靠性优势。</p>
+            <div class="article-tags">
+                <span>离线</span>
+                <span>优势</span>
+                <span>分析</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- Professional Use Cases -->
+<section class="use-cases">
+    <h2>专业应用场景</h2>
+    <div class="use-cases-grid">
+        <div class="use-case">
+            <h3>法律专业人士</h3>
+            <p>使用离线转录解决方案维护律师客户保密特权。</p>
+            <a href="{{ url('/zh/guides/transcription-lawyers-mac.html') }}">法律指南 →</a>
+        </div>
+        <div class="use-case">
+            <h3>医疗工作者</h3>
+            <p>通过本地转录实现 HIPAA 合规和患者隐私保护。</p>
+            <a href="{{ url('/zh/guides/medical-transcription-mac.html') }}">医疗指南 →</a>
+        </div>
+        <div class="use-case">
+            <h3>新闻记者</h3>
+            <p>在采访中保护消息来源并维护机密性。</p>
+            <a href="{{ url('/zh/guides/journalist-transcription-mac.html') }}">媒体指南 →</a>
+        </div>
+    </div>
+</section>
+
+@endsection
