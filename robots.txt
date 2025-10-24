@@ -1,0 +1,6 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://transcription.1oa.cc/sitemap.xml 
+Sitemap: http://transcription.1oa.cc/sitemap.xml 
+

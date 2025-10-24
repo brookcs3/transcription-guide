@@ -1,0 +1,13 @@
+# Node.js
+node_modules/
+
+# IndexNow scripts (optional - keep them local if you prefer)
+# submit-indexnow.js
+# submit-url.js
+
+# macOS
+.DS_Store
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
