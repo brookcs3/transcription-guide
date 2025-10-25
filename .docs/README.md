@@ -1,6 +1,6 @@
 # Mac Transcription Guide
 
-> Professional transcription software reviews and guides for Mac users
+> Professional transcription software reviews and guides for Mac usrs
 
 🌐 **Live Site:** [https://transcription.1oa.cc/](https://transcription.1oa.cc/)
 
