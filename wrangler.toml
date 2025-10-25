@@ -1,0 +1,3 @@
+name = "transcription-guide"
+pages_build_output_dir = "./public_html"
+compatibility_date = "2025-10-25"
