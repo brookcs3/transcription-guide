@@ -1,159 +1,193 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Main Pages -->
   <url>
     <loc>https://transcription.1oa.cc/</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/about.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/contact.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/privacy.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/reviews.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/comparisons.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/professional-guides.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/guides.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Review Articles -->
+  <url>
+    <loc>https://transcription.1oa.cc/reviews/scriber-pro-review.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/privacy-guide.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/reviews/otter-ai-review.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/posts/best-mac-apps-try-2025.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/reviews/rev-review.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/posts/best-offline-transcription-mac-2025.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/reviews/best-offline-transcription-mac-2025.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/posts/privacy-risks-cloud-transcription.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/reviews/best-mac-transcription-apps.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/posts/scriber-pro-review.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/reviews/otter-ai-lawsuit.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/posts/otter-ai-review.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/reviews/privacy-risks-cloud-transcription.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://transcription.1oa.cc/posts/rev-review.html</loc>
-    <lastmod>2025-10-23</lastmod>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/posts/otter-ai-lawsuit.html</loc>
-    <lastmod>2025-10-23</lastmod>
-  </url>
+
+  <!-- Comparison Articles -->
   <url>
     <loc>https://transcription.1oa.cc/comparisons/scriber-pro-vs-otter.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/comparisons/scriber-pro-vs-rev.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.9</priority>
   </url>
+
+  <!-- Guide Articles -->
   <url>
     <loc>https://transcription.1oa.cc/guides/student-lecture-download-guide.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/guides/why-offline-transcription.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/guides/transcription-lawyers-mac.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/guides/medical-transcription-mac.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/guides/journalist-transcription-mac.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Chinese (zh) Main Pages -->
   <url>
     <loc>https://transcription.1oa.cc/zh/</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/about.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/contact.html</loc>
-    <lastmod>2025-10-23</lastmod>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/zh/privacy.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/reviews.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/comparisons.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://transcription.1oa.cc/zh/professional-guides.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/zh/guides.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Chinese (zh) Review Articles -->
   <url>
-    <loc>https://transcription.1oa.cc/zh/privacy-guide.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <loc>https://transcription.1oa.cc/zh/reviews/best-offline-transcription-mac-2025.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://transcription.1oa.cc/zh/posts/best-mac-apps-try-2025.html</loc>
-    <lastmod>2025-10-23</lastmod>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/zh/posts/best-offline-transcription-mac-2025.html</loc>
-    <lastmod>2025-10-23</lastmod>
-  </url>
-  <url>
-    <loc>https://transcription.1oa.cc/zh/posts/privacy-risks-cloud-transcription.html</loc>
-    <lastmod>2025-10-23</lastmod>
-  </url>
+
+  <!-- Chinese (zh) Comparison Articles -->
   <url>
     <loc>https://transcription.1oa.cc/zh/comparisons/scriber-pro-vs-otter.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/comparisons/scriber-pro-vs-rev.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Chinese (zh) Guide Articles -->
   <url>
     <loc>https://transcription.1oa.cc/zh/guides/journalist-transcription-mac.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/guides/medical-transcription-mac.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/guides/transcription-lawyers-mac.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://transcription.1oa.cc/zh/guides/why-offline-transcription.html</loc>
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transcription.1oa.cc/zh/guides/student-lecture-download-guide.html</loc>
+    <lastmod>2025-10-25</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
