@@ -83,8 +83,8 @@ jobs:
         run: bash scripts/build-static.sh
 
       - name: Upload artifact for GitHub Pages
-        # Use the official upload-pages-artifact action
-        uses: actions/upload-pages-artifact@v1
+        # Use updated pages upload action (uses non-deprecated artifact action)
+        uses: actions/upload-pages-artifact@v2
         with:
           path: dist
 
