@@ -4,81 +4,79 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
-      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      # Set up PHP environment
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v4
         with:
-          php-version: '8.2'
-          extensions: mbstring, xml, ctype, json, bcmath
-          coverage: none
+          php-version: '8.1'
+          extensions: mbstring, pdo, xml, sqlite
+          ini-values: post_max_size=256M, memory_limit=2G
 
-      # Install Composer dependencies
-      - name: Install Composer dependencies
-        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-
-      # Set up Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '18'
 
-      # Install NPM dependencies
-      - name: Install NPM dependencies
-        run: npm ci
-
-      # Build assets with Vite
-      - name: Build assets with Vite
-        run: npm run build
-
-      # Generate static site
-      - name: Generate static site
-        run: php build-static.php
-
-      # Ensure Git remote origin exists
-      - name: Ensure git remote origin exists
-        run: |
-          if git remote | grep -q '^origin$'; then
-            echo "origin remote exists"
-          else
-            echo "Adding origin remote"
-            git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          fi
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public_html
-          publish_branch: gh-pages
-          cname: transcription.1oa.cc
-          force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          path: ~/.composer/cache
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
 
-      # Deployment summary
-      - name: Deployment summary
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Install node modules (if present)
+        if: files('package.json')
         run: |
-          echo "✅ Deployment complete!"
-          echo "🌐 Site will be available at: https://transcription.1oa.cc"
-          echo "📦 Deployed from commit: ${{ github.sha }}"
-          echo "🕒 Deployment time: $(date)"
+          npm ci
+          # build script will be run by the build script if needed
+
+      - name: Prepare .env and SQLite (for CI)
+        run: |
+          cp .env.example .env || true
+          mkdir -p database
+          touch database/database.sqlite
+          # Ensure .env has a sqlite DB and app URL for the local server
+          php -r "file_exists('.env') || die('No .env');"
+          # overwrite DB settings for CI
+          php -r "\$env = file_get_contents('.env'); \$env = preg_replace('/^DB_CONNECTION=.*$/m', 'DB_CONNECTION=sqlite', \$env); \$env = preg_replace('/^DB_DATABASE=.*$/m', 'DB_DATABASE=' . getenv('GITHUB_WORKSPACE') . '/database/database.sqlite', \$env); file_put_contents('.env', \$env);"
+          echo "APP_ENV=production" >> .env || true
+          echo "APP_DEBUG=false" >> .env || true
+          echo "APP_URL=http://127.0.0.1:8000" >> .env || true
+          php artisan key:generate --force || true
+          # run migrations if you need DB-driven pages (optional)
+          php artisan migrate --force || true
+
+      - name: Build static site (start server + export to dist/)
+        env:
+          APP_ENV: production
+        run: bash scripts/build-static.sh
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
