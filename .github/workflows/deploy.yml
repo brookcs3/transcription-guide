@@ -39,7 +39,17 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
 
-      - name: Cache node modules
+      - name: Check for package.json
+        id: check_node
+        run: |
+          if [ -f package.json ]; then
+            echo "present=true" >> $GITHUB_OUTPUT
+          else
+            echo "present=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Cache node modules (only if package.json exists)
+        if: ${{ steps.check_node.outputs.present == 'true' }}
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -47,25 +57,21 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
 
       - name: Install node modules (if present)
-        if: files('package.json')
-        run: |
-          npm ci
-          # build script will be run by the build script if needed
+        if: ${{ steps.check_node.outputs.present == 'true' }}
+        run: npm ci
 
       - name: Prepare .env and SQLite (for CI)
         run: |
           cp .env.example .env || true
           mkdir -p database
           touch database/database.sqlite
-          # Ensure .env has a sqlite DB and app URL for the local server
-          php -r "file_exists('.env') || die('No .env');"
-          # overwrite DB settings for CI
-          php -r "\$env = file_get_contents('.env'); \$env = preg_replace('/^DB_CONNECTION=.*$/m', 'DB_CONNECTION=sqlite', \$env); \$env = preg_replace('/^DB_DATABASE=.*$/m', 'DB_DATABASE=' . getenv('GITHUB_WORKSPACE') . '/database/database.sqlite', \$env); file_put_contents('.env', \$env);"
+          # ensure APP_URL and DB are reasonable for CI
           echo "APP_ENV=production" >> .env || true
           echo "APP_DEBUG=false" >> .env || true
           echo "APP_URL=http://127.0.0.1:8000" >> .env || true
+          # set DB to sqlite in CI (simple, adjust if you need other DB)
+          php -r "\$env = file_get_contents('.env'); if (\$env === false) exit(0); \$env = preg_replace('/^DB_CONNECTION=.*$/m', 'DB_CONNECTION=sqlite', \$env); \$env = preg_replace('/^DB_DATABASE=.*$/m', 'DB_DATABASE=' . getenv('GITHUB_WORKSPACE') . '/database/database.sqlite', \$env); file_put_contents('.env', \$env);"
           php artisan key:generate --force || true
-          # run migrations if you need DB-driven pages (optional)
           php artisan migrate --force || true
 
       - name: Build static site (start server + export to dist/)
