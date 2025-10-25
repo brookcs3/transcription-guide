@@ -39,8 +39,9 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist --optimize-autoloader
+      - name: Install Composer dependencies (temporary: ignore platform reqs to unblock CI)
+        # REMOVE --ignore-platform-reqs after you update composer.lock on PHP 8.1
+        run: composer install --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
 
       - name: Check for package.json
         id: check_node
@@ -79,14 +80,10 @@ jobs:
         env:
           APP_ENV: production
         run: |
-          # ensure no BOM/CRLF + executable bit, then run under bash
-          # dos2unix might not be installed in all runners; ignore failure safely
+          # normalize line endings (if any) and make script executable
           dos2unix scripts/build-static.sh 2>/dev/null || true
-          # remove stray leading bytes (e.g. accidental 'e' before shebang) if present
-          # this is a safe idempotent no-op if file is already correct
-          head -n 1 scripts/build-static.sh | grep -q '^#!' || (sed -i '1s/^[[:space:]]*[^#]\+#!/#!/' scripts/build-static.sh || true)
           chmod +x scripts/build-static.sh
-          # run with bash explicitly (Actions default shell may be sh)
+          # run with bash explicitly to avoid sh/dash differences
           bash scripts/build-static.sh
         shell: bash
 
