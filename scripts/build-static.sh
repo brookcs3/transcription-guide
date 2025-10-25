@@ -1,4 +1,4 @@
-e#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 WORKDIR="$(pwd)"
@@ -49,6 +49,7 @@ rm -rf "$DIST_DIR"
 mkdir -p "$DIST_DIR"
 
 echo "Starting php artisan serve on ${HOST}:${PORT} (logs -> ${LOG}) ..."
+# Disable JIT and CLI opcache to avoid the "JIT is incompatible..." warning
 php -d opcache.jit=0 -d opcache.enable_cli=0 artisan serve --host="$HOST" --port="$PORT" >"$LOG" 2>&1 &
 echo $! > "$PIDFILE"
 
