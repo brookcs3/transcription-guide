@@ -80,7 +80,7 @@ jobs:
         run: bash scripts/build-static.sh
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-page-artifact@v4
         with:
           path: dist
 
