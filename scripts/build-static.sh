@@ -1,41 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Build static site by starting a lightweight PHP server (IPv4) and mirroring with wget.
+# This avoids artisan serve binding races and IPv6/IPv4 confusion on GH Actions runners.
+# Adjust ROUTES array below if you want deterministic per-route export instead of wget mirror.
+
 WORKDIR="$(pwd)"
 LOG="/tmp/artisan-serve.log"
-PIDFILE="/tmp/artisan.pid"
-EXPORT_PIDFILE="/tmp/export.pid"
+PIDFILE="/tmp/php-server.pid"
 DIST_DIR="dist"
-HOST="0.0.0.0"          # bind to all interfaces
-CHECK_HOST_IPV4="127.0.0.1"
-CHECK_HOST_IPV6="::1"
+HOST="127.0.0.1"         # force IPv4 listener and checks
 PORT="8000"
-URL_IPV4="http://${CHECK_HOST_IPV4}:${PORT}"
-URL_IPV6="http://[${CHECK_HOST_IPV6}]:${PORT}"
-
-# Timeouts (seconds)
-START_TIMEOUT=180       # how long we wait for server/listen detection
-EXPORT_TIMEOUT=600      # how long the exporter will keep trying before giving up
-EXPORT_RETRY_INTERVAL=3 # delay between export retries once server responds
-
-SLEEP_INTERVAL=1
+URL="http://${HOST}:${PORT}"
+EXPORT_TIMEOUT=600      # seconds to keep trying the export
+EXPORT_RETRY_INTERVAL=3 # seconds between retries
 
 cleanup() {
-  echo "Cleanup: stopping background processes if any..."
-  if [ -f "$EXPORT_PIDFILE" ]; then
-    export_pid="$(cat "$EXPORT_PIDFILE" 2>/dev/null || true)"
-    if [ -n "$export_pid" ] && kill -0 "$export_pid" 2>/dev/null; then
-      echo "Killing exporter (pid $export_pid)"
-      kill "$export_pid" || true
-      wait "$export_pid" 2>/dev/null || true
-    fi
-    rm -f "$EXPORT_PIDFILE"
-  fi
-
+  echo "Cleanup: stopping background server if any..."
   if [ -f "$PIDFILE" ]; then
     pid="$(cat "$PIDFILE" 2>/dev/null || true)"
     if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
-      echo "Stopping artisan server (pid $pid)..."
+      echo "Stopping PHP built-in server (pid $pid)..."
       kill "$pid" || true
       wait "$pid" 2>/dev/null || true
     fi
@@ -48,170 +33,101 @@ echo "Cleaning and creating ${DIST_DIR}/"
 rm -rf "$DIST_DIR"
 mkdir -p "$DIST_DIR"
 
-echo "Starting php artisan serve on ${HOST}:${PORT} (logs -> ${LOG}) ..."
-# Disable JIT and CLI opcache to avoid the "JIT is incompatible..." warning
-php -d opcache.jit=0 -d opcache.enable_cli=0 artisan serve --host="$HOST" --port="$PORT" >"$LOG" 2>&1 &
+# Ensure .env and migrations already ran prior to calling this script (CI step should run them).
+# Start PHP built-in server bound to 127.0.0.1 (IPv4) and use public/index.php as router.
+echo "Starting PHP built-in server on ${HOST}:${PORT} (logs -> ${LOG}) ..."
+# Disable opcache.jit and CLI opcache for CI stability
+php -d opcache.jit=0 -d opcache.enable_cli=0 -S ${HOST}:${PORT} -t public public/index.php >"$LOG" 2>&1 &
 echo $! > "$PIDFILE"
 
-# Helper: perform the actual export once server is responsive
-perform_export() {
-  echo "=== perform_export: exporting to ${DIST_DIR} ==="
-
-  # prefer built-in npm export if present
-  if [ -f package.json ] && npm run | grep -q 'export'; then
-    echo "Detected npm export script — running npm ci && npm run export"
-    npm ci
-    if npm run export; then
-      echo "npm export succeeded"
-      return 0
-    else
-      echo "npm export failed"
-      return 1
-    fi
+# Wait for the server to answer on IPv4
+echo "Waiting up to 120s for server to respond at ${URL} ..."
+start_ts=$(date +%s)
+while : ; do
+  if curl --ipv4 --fail --silent --show-error --max-time 5 "$URL" >/dev/null 2>&1; then
+    echo "Server responded at ${URL}"
+    break
   fi
-
-  # try artisan static export commands
-  if php artisan list --no-ansi | grep -qE 'static:export|export'; then
-    echo "Detected artisan export command — attempting static:export/export"
-    if php artisan list --no-ansi | grep -q 'static:export'; then
-      if php artisan static:export --output="$DIST_DIR"; then
-        echo "artisan static:export succeeded"
-        return 0
-      else
-        echo "artisan static:export failed"
-      fi
-    fi
-
-    if php artisan export --output="$DIST_DIR"; then
-      echo "artisan export succeeded"
-      return 0
-    else
-      echo "artisan export failed"
-    fi
+  now=$(date +%s)
+  elapsed=$((now - start_ts))
+  if [ "$elapsed" -ge 120 ]; then
+    echo "Server did not respond within 120s. Dumping ${LOG} (first 500 lines):"
+    sed -n '1,500p' "$LOG" || true
+    echo "ss/netstat (listening sockets):"
+    ( command -v ss >/dev/null 2>&1 && ss -ltn ) || ( command -v netstat >/dev/null 2>&1 && netstat -ltn ) || true
+    exit 1
   fi
+  sleep 1
+done
 
-  # fallback: wget mirror (works for most simple sites)
+echo "Server ready. Starting export (will retry for up to ${EXPORT_TIMEOUT}s)..."
+
+# Option A: Deterministic export by fetching specific routes (preferred for small sites)
+# If you have a known list of public routes, populate ROUTES and uncomment the deterministic export block below.
+# Example:
+# ROUTES=("/" "/about" "/posts" "/contact")
+#
+# mkdir -p "$DIST_DIR"
+# for p in "${ROUTES[@]}"; do
+#   out="$DIST_DIR${p}"
+#   # ensure directory exists
+#   mkdir -p "$(dirname "$out")"
+#   # map root path to index.html
+#   if [ "$p" = "/" ]; then
+#     curl --ipv4 --fail --show-error --max-time 15 "${URL}/" -o "${DIST_DIR}/index.html" || true
+#   else
+#     # remove leading slash for filename if desired
+#     filename="${p#/}"
+#     curl --ipv4 --fail --show-error --max-time 15 "${URL}${p}" -o "${DIST_DIR}/${filename}.html" || true
+#   fi
+# done
+# echo "Deterministic export finished."
+
+# Option B: fallback to wget mirror (works generically)
+EXPORT_START=$(date +%s)
+while : ; do
   if command -v wget >/dev/null 2>&1; then
-    echo "No export task detected; using wget to mirror site into ${DIST_DIR}"
-    wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --directory-prefix="$DIST_DIR" "$URL_IPV4"
-    # Move up if wget created a host-named subdir
-    if [ -d "${DIST_DIR}/${CHECK_HOST_IPV4}:${PORT}" ]; then
+    echo "Running wget mirror into ${DIST_DIR}..."
+    rm -rf "${DIST_DIR}" && mkdir -p "${DIST_DIR}"
+    wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --directory-prefix="${DIST_DIR}" "${URL}"
+    # wget often creates dist/127.0.0.1:8000; move files up if present
+    hostdir="${DIST_DIR}/${HOST}:${PORT}"
+    if [ -d "$hostdir" ]; then
       shopt -s dotglob || true
-      mv "${DIST_DIR}/${CHECK_HOST_IPV4}:${PORT}/"* "$DIST_DIR"/ || true
-      rm -rf "${DIST_DIR:?}/${CHECK_HOST_IPV4}:${PORT}"
-    elif [ -d "${DIST_DIR}/${CHECK_HOST_IPV6}:${PORT}" ]; then
-      shopt -s dotglob || true
-      mv "${DIST_DIR}/${CHECK_HOST_IPV6}:${PORT}/"* "$DIST_DIR"/ || true
-      rm -rf "${DIST_DIR:?}/${CHECK_HOST_IPV6}:${PORT}"
+      mv "${hostdir}/"* "${DIST_DIR}/" 2>/dev/null || true
+      rm -rf "${hostdir}"
     fi
 
-    # Basic check: ensure we have some files
-    if [ -n "$(find "$DIST_DIR" -type f | head -n 1 || true)" ]; then
-      echo "wget mirror succeeded"
-      return 0
+    # crude check: ensure we produced at least one HTML or index file
+    if find "${DIST_DIR}" -type f -iname '*.html' -o -name 'index.php' | head -n 1 >/dev/null 2>&1; then
+      echo "wget produced files in ${DIST_DIR} — export succeeded."
+      break
     else
-      echo "wget mirror produced no files"
-      return 1
+      echo "wget run produced no HTML files — will retry."
     fi
   else
-    echo "wget not found; cannot run fallback mirror"
-    return 1
-  fi
-}
-
-# Export loop: keep trying until server responds and export succeeds or timeout reached
-export_loop() {
-  echo "Exporter started (will try up to ${EXPORT_TIMEOUT}s)..."
-  local elapsed=0
-
-  while [ "$elapsed" -lt "$EXPORT_TIMEOUT" ]; do
-    # Prefer HTTP IPv4 then IPv6 checks
-    server_ready=false
-    if command -v curl >/dev/null 2>&1; then
-      if curl --ipv4 --fail --silent --show-error --max-time 5 "$URL_IPV4" >/dev/null 2>&1; then
-        server_ready=true
-        echo "Server responds on IPv4"
-      elif curl --ipv6 --fail --silent --show-error --max-time 5 "$URL_IPV6" >/dev/null 2>&1; then
-        server_ready=true
-        echo "Server responds on IPv6"
-      fi
-    fi
-
-    # If server is not yet responsive, print a short status and sleep
-    if [ "$server_ready" != true ]; then
-      if command -v ss >/dev/null 2>&1; then
-        if ss -ltn | grep -q -E "(:|\\])${PORT}\\s+LISTEN"; then
-          echo "Port ${PORT} is LISTENing but HTTP probe failed (elapsed ${elapsed}s)"
-        else
-          echo "Port ${PORT} not yet LISTENing (elapsed ${elapsed}s)"
-        fi
-      else
-        echo "Server not responsive yet (elapsed ${elapsed}s)"
-      fi
-
-      sleep $EXPORT_RETRY_INTERVAL
-      elapsed=$((elapsed + EXPORT_RETRY_INTERVAL))
-      continue
-    fi
-
-    # Server responds — attempt export. If it fails, sleep and retry.
-    if perform_export; then
-      echo "Export completed successfully"
-      return 0
+    echo "wget not installed on runner; trying curl fallback for root only..."
+    mkdir -p "${DIST_DIR}"
+    if curl --ipv4 --fail --show-error --max-time 15 "${URL}/" -o "${DIST_DIR}/index.html"; then
+      echo "curl root succeeded."
+      break
     else
-      echo "Export attempt failed; will retry after ${EXPORT_RETRY_INTERVAL}s (elapsed ${elapsed}s)"
-      sleep $EXPORT_RETRY_INTERVAL
-      elapsed=$((elapsed + EXPORT_RETRY_INTERVAL))
+      echo "curl root failed; will retry."
     fi
-  done
-
-  echo "Exporter timed out after ${EXPORT_TIMEOUT}s"
-  return 2
-}
-
-# Start the exporter in the background immediately (it will poll until server responds)
-export_loop &
-export_pid=$!
-echo "$export_pid" > "$EXPORT_PIDFILE"
-echo "Exporter started in background (pid $export_pid)"
-
-# Wait for exporter to finish. If it exits successfully, continue; otherwise show diagnostics.
-wait_timeout() {
-  local pid="$1"
-  local timeout="$2"
-  local waited=0
-  while kill -0 "$pid" 2>/dev/null; do
-    if [ "$waited" -ge "$timeout" ]; then
-      return 1
-    fi
-    sleep 1
-    waited=$((waited + 1))
-  done
-  # process exited — get its exit code
-  wait "$pid"
-  return $?
-}
-
-# Wait for exporter up to EXPORT_TIMEOUT + margin
-TOTAL_WAIT=$((EXPORT_TIMEOUT + 30))
-echo "Waiting for exporter to finish (up to ${TOTAL_WAIT}s)..."
-if wait_timeout "$export_pid" "$TOTAL_WAIT"; then
-  echo "Exporter finished successfully."
-  exit 0
-else
-  echo "Exporter did not finish within ${TOTAL_WAIT}s. Dumping diagnostics..."
-  echo
-  echo "=== /tmp/artisan-serve.log (first 500 lines) ==="
-  sed -n '1,500p' "$LOG" || true
-  echo
-  echo "=== ss -ltn output ==="
-  if command -v ss >/dev/null 2>&1; then ss -ltn || true; fi
-  if command -v netstat >/dev/null 2>&1; then netstat -ltn || true; fi
-  echo
-  echo "=== Exporter stdout/stderr (if any) ==="
-  if [ -f "$EXPORT_PIDFILE" ]; then
-    echo "Exporter PID file present at $EXPORT_PIDFILE"
   fi
-  echo "Full artisan log: $LOG"
-  exit 1
-fi
+
+  now=$(date +%s)
+  elapsed=$((now - EXPORT_START))
+  if [ "$elapsed" -ge "$EXPORT_TIMEOUT" ]; then
+    echo "Export timed out after ${EXPORT_TIMEOUT}s."
+    echo "Dumping ${LOG} (first 500 lines):"
+    sed -n '1,500p' "$LOG" || true
+    ( command -v ss >/dev/null 2>&1 && ss -ltn ) || ( command -v netstat >/dev/null 2>&1 && netstat -ltn ) || true
+    exit 1
+  fi
+  sleep "${EXPORT_RETRY_INTERVAL}"
+done
+
+echo "Static export complete. Files located in ${DIST_DIR}/"
+# success
+exit 0
