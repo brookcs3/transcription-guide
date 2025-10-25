@@ -77,6 +77,10 @@ jobs:
           php artisan migrate --force || true
 
       - name: Build static site (start server + export to dist/)
+
+        
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         env:
           APP_ENV: production
         run: |
@@ -86,11 +90,9 @@ jobs:
           # run with bash explicitly to avoid sh/dash differences
           bash scripts/build-static.sh
         shell: bash
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
+          
