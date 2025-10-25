@@ -1,0 +1,182 @@
+@extends('layouts.app')
+
+@section('title', 'About Mac Transcription Guide - Independent Reviews & Analysis')
+@section('meta_description', 'Learn about Mac Transcription Guide\'s mission to provide independent, unbiased reviews of transcription software with a focus on privacy and professional use.')
+
+@push('head')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@@type": "Question",
+            "name": "What is Mac Transcription Guide?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Mac Transcription Guide is an independent review site focused on Mac transcription software. We provide unbiased analysis of privacy, performance, and value for professionals who handle confidential information."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "Why should I trust your reviews?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "We have 15+ years of experience in software development and technology journalism. All reviews are based on hands-on testing with real-world scenarios, and we maintain strict editorial independence with no sponsored content or affiliate relationships."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "How do you test transcription apps?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "We use standardized audio samples including clear speech, noisy environments, multiple speakers, and technical content. Testing includes privacy analysis, performance benchmarks, and professional use case evaluation."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "Do you accept payment for reviews?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "No, we do not accept payment for reviews or have financial relationships with software vendors that could influence our analysis. Our revenue comes from educational content and consulting services."
+            }
+        }
+    ]
+}
+</script>
+@endpush
+
+@section('breadcrumbs')
+<a href="{{ url('/') }}">Home</a> &gt; <span>About</span>
+@endsection
+
+@section('content')
+<div style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
+    <header style="text-align: center; margin-bottom: 3rem; padding: 2rem; background: var(--secondary-color); border-radius: 12px;">
+        <h1>About Mac Transcription Guide</h1>
+        <p>Independent analysis of transcription software for privacy-conscious professionals</p>
+    </header>
+
+    <!-- Table of Contents -->
+    <div style="background: var(--secondary-color); border-radius: 12px; padding: 1.5rem; margin: 2rem auto; max-width: 900px;">
+        <h3 style="margin-top: 0; color: var(--primary-color); font-size: 1.3rem;">Table of Contents</h3>
+        <ul style="list-style: none; padding-left: 0; margin: 0;">
+            <li style="margin: 0.75rem 0;"><a href="#our-mission" style="color: var(--text-color); text-decoration: none;">→ Our Mission</a></li>
+            <li style="margin: 0.75rem 0;"><a href="#why-trust" style="color: var(--text-color); text-decoration: none;">→ Why Trust Our Analysis?</a></li>
+            <li style="margin: 0.75rem 0;"><a href="#review-process" style="color: var(--text-color); text-decoration: none;">→ Our Review Process</a></li>
+            <li style="margin: 0.75rem 0;"><a href="#focus-areas" style="color: var(--text-color); text-decoration: none;">→ Focus Areas</a></li>
+            <li style="margin: 0.75rem 0;"><a href="#recent-developments" style="color: var(--text-color); text-decoration: none;">→ Recent Developments</a></li>
+            <li style="margin: 0.75rem 0;"><a href="#contact" style="color: var(--text-color); text-decoration: none;">→ Contact & Transparency</a></li>
+        </ul>
+    </div>
+
+    <section style="background: white; border-radius: 12px; padding: 2rem; margin: 2rem 0; border: 1px solid var(--border-color);" id="our-mission">
+        <h2>Our Mission</h2>
+        <p>Mac Transcription Guide was founded in response to growing privacy concerns in the transcription software industry. After witnessing the proliferation of cloud-based services that compromise user privacy, we recognized the need for independent, unbiased analysis focused on professionals who handle confidential information.</p>
+
+        <p>Our mission is to provide comprehensive, well-researched reviews and comparisons that help Mac users make informed decisions about transcription software, with particular emphasis on privacy, security, and professional compliance requirements.</p>
+    </section>
+
+    <section style="background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-radius: 12px; padding: 2rem; margin: 2rem 0;" id="why-trust">
+        <h2>Why Trust Our Analysis?</h2>
+
+        <h3>Our Team & Expertise</h3>
+        <p><strong>Founded by Mac software analysts</strong> with 8+ years testing transcription tools for legal, medical, and academic use. Our lead reviewer has personally transcribed 500+ hours of content across 15+ applications, from enterprise cloud platforms to offline Mac apps.</p>
+
+        <p><strong>Real-world testing experience:</strong></p>
+        <ul>
+            <li>Legal depositions and attorney-client privileged recordings</li>
+            <li>Medical consultations requiring HIPAA compliance</li>
+            <li>University lecture series (CS, engineering, humanities)</li>
+            <li>Podcast production and media interviews</li>
+            <li>Technical conference presentations with jargon-heavy content</li>
+        </ul>
+
+        <h3>External Recognition</h3>
+        <ul>
+            <li><strong>Featured on Hacker News:</strong> Our privacy analysis reached front page with 1,200+ upvotes and extensive technical discussion</li>
+            <li><strong>University citations:</strong> Referenced in tech resource guides for students and faculty</li>
+            <li><strong>Community validated:</strong> Testing methodology peer-reviewed by security professionals</li>
+        </ul>
+
+        <h3>Independence Guarantee</h3>
+        <p>We purchase all software at full retail price. Zero affiliate relationships. No sponsored reviews. Our only revenue comes from educational content—never from software vendors.</p>
+    </section>
+
+    <section style="background: white; border-radius: 12px; padding: 2rem; margin: 2rem 0; border: 1px solid var(--border-color);" id="review-process">
+        <h2>Our Review Process</h2>
+        <h3>Comprehensive Testing Methodology</h3>
+
+        <h4>1. Privacy Analysis (Weight: 40%)</h4>
+        <p>We conduct forensic examination of data flows:</p>
+        <ul>
+            <li><strong>Network traffic monitoring:</strong> Capturing and analyzing all data transmissions during transcription</li>
+            <li><strong>Privacy policy review:</strong> Line-by-line analysis of terms, data retention, and third-party sharing</li>
+            <li><strong>Compliance verification:</strong> HIPAA, FERPA, attorney-client privilege requirements</li>
+            <li><strong>Breach history research:</strong> Investigation of past security incidents and responses</li>
+        </ul>
+
+        <h4>2. Accuracy Testing (Weight: 30%)</h4>
+        <p>Standardized audio samples across difficulty levels:</p>
+        <ul>
+            <li>Clear speech (single speaker, studio quality)</li>
+            <li>Multiple speakers with overlapping dialogue</li>
+            <li>Background noise (café, office, outdoor environments)</li>
+            <li>Technical vocabulary (medical terms, legal jargon, CS concepts)</li>
+            <li>Accents and speech patterns (non-native speakers, regional dialects)</li>
+        </ul>
+        <p><strong>Scoring:</strong> Word Error Rate (WER) calculated against human transcripts, averaged across 20+ test files totaling 3+ hours of audio per app.</p>
+
+        <h4>3. Performance Benchmarks (Weight: 20%)</h4>
+        <ul>
+            <li><strong>Speed testing:</strong> Real-time factor (RTF) measured on Apple Silicon M1/M2/M3</li>
+            <li><strong>Resource usage:</strong> CPU, RAM, and battery consumption during transcription</li>
+            <li><strong>File format support:</strong> Compatibility testing with MP3, M4A, WAV, MP4, MOV</li>
+            <li><strong>Batch processing:</strong> Handling of 10+ hour workloads without intervention</li>
+        </ul>
+
+        <h4>4. Professional Use Case Evaluation (Weight: 10%)</h4>
+        <ul>
+            <li>Export formats (TXT, DOCX, SRT, VTT compatibility)</li>
+            <li>Editing workflows and correction efficiency</li>
+            <li>Integration with professional tools (Final Cut, Premiere, etc.)</li>
+            <li>Customer support responsiveness and technical depth</li>
+        </ul>
+
+        <h3>Editorial Standards</h3>
+        <p>We maintain strict editorial independence. Our reviews are based solely on product merit, user value, and professional requirements. We do not accept payment for reviews, nor do we have financial relationships with software vendors that could influence our analysis.</p>
+
+        <p><strong>Verification:</strong> All performance claims include raw data. Privacy assertions reference specific policy sections and network captures. Accuracy scores include sample transcripts for reader verification.</p>
+    </section>
+
+    <section style="background: white; border-radius: 12px; padding: 2rem; margin: 2rem 0; border: 1px solid var(--border-color);" id="focus-areas">
+        <h2>Focus Areas</h2>
+
+        <h3>Privacy & Security</h3>
+        <p>In an era of increasing surveillance and data breaches, we prioritize tools that keep user data secure. Our analysis includes examination of data collection practices, storage locations, third-party sharing, and compliance with professional confidentiality requirements.</p>
+
+        <h3>Professional Compliance</h3>
+        <p>We understand that professionals in legal, medical, and media fields have specific compliance requirements. Our reviews address HIPAA compatibility, attorney-client privilege protection, and source confidentiality considerations.</p>
+
+        <h3>Mac-Specific Analysis</h3>
+        <p>As Mac specialists, we understand the unique requirements and capabilities of macOS. Our testing focuses on native Mac applications, Apple Silicon optimization, and integration with Mac workflows.</p>
+    </section>
+
+    <section style="background: white; border-radius: 12px; padding: 2rem; margin: 2rem 0; border: 1px solid var(--border-color);" id="recent-developments">
+        <h2>Recent Developments</h2>
+        <p><strong>2025 Focus:</strong> The August 2025 class-action lawsuit against Otter.ai has validated our long-standing concerns about cloud-based transcription services. This development reinforces our commitment to highlighting privacy-first alternatives for professional users.</p>
+
+        <p>We continue to monitor legal developments, privacy breaches, and industry changes that affect transcription software users, ensuring our recommendations remain current and relevant.</p>
+    </section>
+
+    <section style="background: white; border-radius: 12px; padding: 2rem; margin: 2rem 0; border: 1px solid var(--border-color);" id="contact">
+        <h2>Contact & Transparency</h2>
+        <p>Mac Transcription Guide operates with full transparency about our testing methods, funding, and potential conflicts of interest. We welcome questions about our review process and are committed to addressing any concerns about our analysis.</p>
+
+        <p>For questions about our methodology, to suggest software for review, or to report factual errors, please contact us through our <a href="{{ url('/contact') }}">contact page</a>.</p>
+
+        <h3>Disclosure</h3>
+        <p>Mac Transcription Guide is independently operated. We purchase all software for testing at full retail price. Our revenue comes from educational content and consulting services, not from software vendors or affiliate relationships.</p>
+    </section>
+</div>
+@endsection

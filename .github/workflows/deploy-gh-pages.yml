@@ -1,0 +1,116 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, json, zip
+          coverage: none
+
+      - name: Copy .env
+        run: |
+          cp .env.example .env
+          echo "APP_ENV=production" >> .env
+          echo "APP_DEBUG=false" >> .env
+          echo "APP_URL=https://mactranscriptionguide.com" >> .env
+          echo "APP_NAME='Mac Transcription Guide'" >> .env
+
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
+      - name: Generate Application Key
+        run: php artisan key:generate
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Build Assets
+        run: npm run build
+
+      - name: Create SQLite Database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+
+      - name: Run Database Migrations (if any)
+        run: php artisan migrate --force --no-interaction || echo "No migrations to run"
+
+      - name: Optimize Laravel
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      - name: Generate Static Site
+        run: |
+          # Install static site generator package
+          composer require --dev spatie/laravel-export
+
+          # Create export configuration
+          php artisan vendor:publish --provider="Spatie\Export\ExportServiceProvider"
+
+          # Generate static HTML files from all routes
+          php artisan export
+
+      - name: Prepare Static Files
+        run: |
+          # Copy static files to dist directory
+          mkdir -p dist
+          cp -r public/* dist/
+
+          # Copy generated static HTML if export created them
+          if [ -d "dist_export" ]; then
+            cp -r dist_export/* dist/
+          fi
+
+          # Copy necessary root files for GitHub Pages
+          cp robots.txt dist/ 2>/dev/null || echo "No robots.txt"
+          cp sitemap.xml dist/ 2>/dev/null || echo "No sitemap.xml"
+
+          # Ensure all asset paths are correct
+          echo "Static site prepared in dist/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
