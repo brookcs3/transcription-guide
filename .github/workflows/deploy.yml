@@ -1,3 +1,4 @@
+
 name: Deploy to GitHub Pages
 
 on:
@@ -68,11 +69,9 @@ jobs:
           cp .env.example .env || true
           mkdir -p database
           touch database/database.sqlite
-          # ensure APP_URL and DB are reasonable for CI
           echo "APP_ENV=production" >> .env || true
           echo "APP_DEBUG=false" >> .env || true
           echo "APP_URL=http://127.0.0.1:8000" >> .env || true
-          # set DB to sqlite in CI (simple, adjust if you need other DB)
           php -r "\$env = file_get_contents('.env'); if (\$env === false) exit(0); \$env = preg_replace('/^DB_CONNECTION=.*$/m', 'DB_CONNECTION=sqlite', \$env); \$env = preg_replace('/^DB_DATABASE=.*$/m', 'DB_DATABASE=' . getenv('GITHUB_WORKSPACE') . '/database/database.sqlite', \$env); file_put_contents('.env', \$env);"
           php artisan key:generate --force || true
           php artisan migrate --force || true
@@ -82,11 +81,10 @@ jobs:
           APP_ENV: production
         run: bash scripts/build-static.sh
 
-      - name: Upload artifact for GitHub Pages
-        # Use updated pages upload action (uses non-deprecated artifact action)
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: dist
-
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
