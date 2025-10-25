@@ -78,12 +78,10 @@ jobs:
       - name: Build static site (start server + export to dist/)
         env:
           APP_ENV: production
-        run: bash scripts/build-static.sh
-
-      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
+          run: bash scripts/build-static.sh
