@@ -30,8 +30,12 @@ rm -rf "$DIST_DIR"
 mkdir -p "$DIST_DIR"
 
 echo "Starting php artisan serve on ${HOST}:${PORT} (logs -> ${LOG}) ..."
-# start in background, bind to all interfaces to avoid any bind issues
-php artisan serve --host="$HOST" --port="$PORT" >"$LOG" 2>&1 &
+# Disable JIT and CLI opcache to avoid the "JIT is incompatible..." warning and any
+# interaction with third-party extensions that override zend_execute_ex().
+# - opcache.jit=0 disables JIT
+# - opcache.enable_cli=0 disables opcache for CLI (safer for CI runs)
+# Start in background and capture PID
+php -d opcache.jit=0 -d opcache.enable_cli=0 artisan serve --host="$HOST" --port="$PORT" >"$LOG" 2>&1 &
 echo $! > "$PIDFILE"
 
 echo "Waiting up to ${START_TIMEOUT}s for local server to respond at ${URL} ..."
