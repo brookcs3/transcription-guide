@@ -34,7 +34,6 @@ echo "Starting php artisan serve on ${HOST}:${PORT} (logs -> ${LOG}) ..."
 # interaction with third-party extensions that override zend_execute_ex().
 # - opcache.jit=0 disables JIT
 # - opcache.enable_cli=0 disables opcache for CLI (safer for CI runs)
-# Start in background and capture PID
 php -d opcache.jit=0 -d opcache.enable_cli=0 artisan serve --host="$HOST" --port="$PORT" >"$LOG" 2>&1 &
 echo $! > "$PIDFILE"
 
