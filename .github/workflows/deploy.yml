@@ -67,6 +67,15 @@ jobs:
             echo "✓ CNAME file exists: $(cat public_html/CNAME)"
           fi
 
+      - name: Ensure git remote origin exists
+        run: |
+          if git remote | grep -q '^origin$'; then
+            echo "origin remote exists"
+          else
+            echo "Adding origin remote"
+            git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
