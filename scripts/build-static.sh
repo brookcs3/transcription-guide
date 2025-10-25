@@ -1,77 +1,103 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-cd "$REPO_ROOT"
-
-echo "==== Start static build export ===="
-
-# Build frontend assets if present
-if [ -f package.json ]; then
-  if command -v npm >/dev/null 2>&1; then
-    echo "Installing frontend deps and building (if script exists)..."
-    npm ci
-    if npm run | grep -q " build"; then
-      npm run build
-    elif npm run | grep -q " prod"; then
-      npm run prod
-    else
-      echo "No npm build script found, skipping frontend build."
-    fi
-  else
-    echo "npm not found; skipping frontend build."
-  fi
-fi
-
-# Ensure app key exists
-php artisan key:generate --force >/dev/null 2>&1 || true
-
-# Start artisan serve in the background
-PORT=8000
-HOST=127.0.0.1
-echo "Starting php artisan serve on ${HOST}:${PORT} ..."
-php artisan serve --host=${HOST} --port=${PORT} > /tmp/artisan-serve.log 2>&1 &
-SERVE_PID=$!
+WORKDIR="$(pwd)"
+LOG="/tmp/artisan-serve.log"
+PIDFILE="/tmp/artisan.pid"
+DIST_DIR="dist"
+HOST="0.0.0.0"          # bind to all interfaces
+CHECK_HOST="127.0.0.1"  # use loopback for checks
+PORT="8000"
+URL="http://${CHECK_HOST}:${PORT}"
+START_TIMEOUT=180       # increased timeout in seconds
+SLEEP_INTERVAL=1
 
 cleanup() {
-  echo "Stopping artisan server (pid ${SERVE_PID})..."
-  kill "${SERVE_PID}" >/dev/null 2>&1 || true
-}
-trap cleanup EXIT
-
-# Wait up to 30s for server to respond
-echo "Waiting for the local server to respond..."
-for i in $(seq 1 30); do
-  if curl -sSf "http://${HOST}:${PORT}/" >/dev/null 2>&1; then
-    echo "Server is up."
-    break
+  if [ -f "$PIDFILE" ]; then
+    pid="$(cat "$PIDFILE" 2>/dev/null || true)"
+    if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
+      echo "Stopping artisan server (pid $pid)..."
+      kill "$pid" || true
+      wait "$pid" 2>/dev/null || true
+    fi
+    rm -f "$PIDFILE"
   fi
-  sleep 1
+}
+trap 'cleanup' EXIT INT TERM
+
+echo "Cleaning and creating ${DIST_DIR}/"
+rm -rf "$DIST_DIR"
+mkdir -p "$DIST_DIR"
+
+echo "Starting php artisan serve on ${HOST}:${PORT} (logs -> ${LOG}) ..."
+# start in background, bind to all interfaces to avoid any bind issues
+php artisan serve --host="$HOST" --port="$PORT" >"$LOG" 2>&1 &
+echo $! > "$PIDFILE"
+
+echo "Waiting up to ${START_TIMEOUT}s for local server to respond at ${URL} ..."
+elapsed=0
+while [ "$elapsed" -lt "$START_TIMEOUT" ]; do
+  # prefer curl check (follow redirects, fail on HTTP 5xx/4xx)
+  if command -v curl >/dev/null 2>&1; then
+    if curl --fail --silent --show-error --max-time 5 --retry 5 --retry-delay 1 --retry-connrefused "$URL" >/dev/null 2>&1; then
+      echo "Server is responding via curl."
+      break
+    fi
+  fi
+
+  # fallback: check port listening (ss or netstat)
+  if command -v ss >/dev/null 2>&1; then
+    if ss -ltn "( sport = :$PORT )" | grep -q LISTEN; then
+      echo "Port $PORT is LISTENing (ss)."
+      break
+    fi
+  elif command -v netstat >/dev/null 2>&1; then
+    if netstat -ltn | grep -q ":$PORT[[:space:]]*LISTEN"; then
+      echo "Port $PORT is LISTENing (netstat)."
+      break
+    fi
+  fi
+
+  sleep $SLEEP_INTERVAL
+  elapsed=$((elapsed + SLEEP_INTERVAL))
 done
 
-if ! curl -sSf "http://${HOST}:${PORT}/" >/dev/null 2>&1; then
-  echo "Server did not start within expected time. See /tmp/artisan-serve.log"
-  cat /tmp/artisan-serve.log || true
+# final verification
+if ! curl --fail --silent --show-error --max-time 5 "$URL" >/dev/null 2>&1; then
+  echo "Server did not start within ${START_TIMEOUT}s. Dumping ${LOG} (first 500 lines):"
+  sed -n '1,500p' "$LOG" || true
+  echo "Full log: $LOG"
   exit 1
 fi
 
-# Create/clean dist
-rm -rf dist
-mkdir -p dist
+echo "Running static export..."
 
-# Mirror the site into dist using wget
-echo "Mirroring site to dist/ using wget..."
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-host-directories --directory-prefix=dist "http://${HOST}:${PORT}/"
-
-# Normalize folder structure if wget created a host directory
-HOST_DIR="dist/${HOST}:${PORT}"
-if [ -d "$HOST_DIR" ]; then
-  echo "Normalizing mirrored folder structure..."
-  shopt -s dotglob || true
-  mv "$HOST_DIR"/* dist/ || true
-  rm -rf "$HOST_DIR"
+# Try common export methods in order, fallback to wget mirror
+if [ -f package.json ] && npm run | grep -q 'export'; then
+  echo "Detected npm export script — running: npm ci && npm run export"
+  npm ci
+  npm run export
+elif php artisan list --no-ansi | grep -qE 'static:export|export'; then
+  echo "Detected artisan export command — trying static:export then export"
+  if php artisan list --no-ansi | grep -q 'static:export'; then
+    php artisan static:export --output="$DIST_DIR" || php artisan static:export
+  else
+    php artisan export --output="$DIST_DIR" || php artisan export
+  fi
+else
+  echo "No export task detected. Using wget to mirror the site into ${DIST_DIR}"
+  if ! command -v wget >/dev/null 2>&1; then
+    echo "Error: wget not installed in runner. Install or add an export script."
+    exit 1
+  fi
+  wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --directory-prefix="$DIST_DIR" "$URL"
+  # wget will create dist/127.0.0.1:8000 ; move files up if present
+  if [ -d "${DIST_DIR}/${CHECK_HOST}:${PORT}" ]; then
+    shopt -s dotglob || true
+    mv "${DIST_DIR}/${CHECK_HOST}:${PORT}/"* "$DIST_DIR"/ || true
+    rm -rf "${DIST_DIR:?}/${CHECK_HOST}:${PORT}"
+  fi
 fi
 
-echo "Static export complete. Files are in dist/"
-echo "==== End static build export ===="
+echo "Static export complete. Files located in ${DIST_DIR}/"
 exit 0
