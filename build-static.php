@@ -151,9 +151,8 @@ foreach ($routes as $route => $outputFile) {
 // Copy additional SEO files from root (if they exist)
 echo "\n📄 Copying SEO files...\n";
 $seoFiles = [
-    __DIR__ . '/../../sitemap.xml' => $outputDir . '/sitemap.xml',
-    __DIR__ . '/../../rss.xml' => $outputDir . '/rss.xml',
-    __DIR__ . '/../../CNAME' => $outputDir . '/CNAME',
+    __DIR__ . '/sitemap.xml' => $outputDir . '/sitemap.xml',
+    __DIR__ . '/rss.xml' => $outputDir . '/rss.xml',
 ];
 
 foreach ($seoFiles as $source => $dest) {
@@ -162,10 +161,6 @@ foreach ($seoFiles as $source => $dest) {
         echo "   ✓ Copied " . basename($source) . "\n";
     }
 }
-
-// Create CNAME file
-echo "   ✓ Creating CNAME file...\n";
-File::put($outputDir . '/CNAME', 'transcription.1oa.cc');
 
 // Build summary
 echo "\n" . str_repeat("=", 60) . "\n";

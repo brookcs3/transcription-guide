@@ -58,15 +58,6 @@ jobs:
       - name: Generate static site
         run: php build-static.php
 
-      - name: Verify CNAME file
-        run: |
-          if [ ! -f public_html/CNAME ]; then
-            echo "transcription.1oa.cc" > public_html/CNAME
-            echo "✓ CNAME file created"
-          else
-            echo "✓ CNAME file exists: $(cat public_html/CNAME)"
-          fi
-
       - name: Ensure git remote origin exists
         run: |
           if git remote | grep -q '^origin$'; then
