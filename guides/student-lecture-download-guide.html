@@ -399,40 +399,41 @@
 
             <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
                 <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
-                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">Module 1 - Overview.md</span>
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">Module 2 - Daoism Overview.md</span>
                 </div>
-                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word;"><span style="color: #a5f3fc;"># Module 1 - Overview</span>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word;"><span style="color: #a5f3fc;"># Introduction to Daoism Part 2</span>
 
-<span style="color: #cbd5e1;">This module covers networking fundamentals.</span>
+<span style="color: #cbd5e1;">Focus on the figure of the sage in Zhuangzi's philosophy.</span>
 
-<span style="color: #cbd5e1;">## Lecture Transcripts</span>
+<span style="color: #cbd5e1;">## Required Videos</span>
 
-<span style="color: #cbd5e1;">- [Lecture 1: Introduction]</span>
+<span style="color: #cbd5e1;">- [Professor's Introduction Video]</span>
 
-  <span style="color: #fde047;">'/Users/yourname/Documents/CS_321/Module_1/Lecture01_Intro.txt'</span>
+  <span style="color: #fde047;">'/Users/yourname/Documents/PHL_371/Module_2/Required_Video_transcription.txt'</span>
 
-<span style="color: #cbd5e1;">- [Lecture 2: Network Architecture]</span>
+<span style="color: #cbd5e1;">## Required Readings</span>
 
-  <span style="color: #fde047;">'/Users/yourname/Documents/CS_321/Module_1/Lecture02_Architecture.txt'</span>
+<span style="color: #cbd5e1;">- [In the World of Men, pages 49-62]</span>
 
-<span style="color: #cbd5e1;">## Assignments</span>
+  <span style="color: #fde047;">'/Users/yourname/Documents/PHL_371/Module_2/In_the_World_of_Men_49-62.txt'</span>
 
-<span style="color: #cbd5e1;">- [Lab 1: Wireshark]</span>
+<span style="color: #cbd5e1;">- [The Sign of Virtue Complete, pages 63-72]</span>
 
-  <span style="color: #fde047;">'/Users/yourname/Documents/CS_321/Module_1/Lab1_Instructions.md'</span></pre>
+  <span style="color: #fde047;">'/Users/yourname/Documents/PHL_371/Module_2/Sign_of_Virtue_Complete_63-72.txt'</span></pre>
             </div>
 
-            <p><strong>Why this matters:</strong> When you ask Claude a question, it doesn't just read one file. It follows the links. It reads the transcripts referenced in your overview. It reads the lab instructions. It builds a complete understanding of how concepts connect.</p>
+            <p><strong>Why this matters:</strong> Notice how it links to the <em>transcription</em> of the professor's lecture video. When you ask Claude a question, it follows these links—reading the video transcription, the chapter readings, everything—then synthesizes an answer using your professor's actual words.</p>
 
             <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 2rem 0;">
-                <h3 style="color: #92400e; margin-top: 0;">Example: Real Student Workflow</h3>
-                <p style="margin-bottom: 1rem; color: #78350f;"><strong>Student:</strong> "Explain how packet switching works and connect it to what we learned about network delays."</p>
+                <h3 style="color: #92400e; margin-top: 0;">Example Query</h3>
+                <p style="margin-bottom: 1rem; color: #78350f;"><strong>Student:</strong> "The professor mentioned chapter 3 in the lecture video. What specific sections did he discuss?"</p>
                 <p style="color: #78350f;"><strong>What Claude does:</strong></p>
                 <ol style="margin: 0.5rem 0 0 1.5rem; color: #78350f;">
-                    <li>Reads Module 1 Overview.md</li>
-                    <li>Follows link to Lecture 3 transcript (packet switching)</li>
-                    <li>Follows link to Lecture 5 transcript (delays)</li>
-                    <li>Synthesizes explanation using your professor's actual terminology</li>
+                    <li>Reads Module Overview.md</li>
+                    <li>Follows link to lecture video transcription</li>
+                    <li>Searches transcription for "chapter 3" mentions</li>
+                    <li>Cross-references with actual reading file</li>
+                    <li>Tells you exactly which pages the professor covered</li>
                 </ol>
             </div>
 
@@ -440,9 +441,9 @@
 
             <!-- Full Real-World Example -->
             <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 16px; margin: 3rem 0;">
-                <h3 style="color: white; margin-top: 0; font-size: 1.6rem; margin-bottom: 1.5rem;">📚 Complete Real Example: Philosophy Course Module</h3>
+                <h3 style="color: white; margin-top: 0; font-size: 1.6rem; margin-bottom: 1.5rem;">📚 Full Example: Real Philosophy Module</h3>
 
-                <p style="font-size: 1.05rem; margin-bottom: 1.5rem; opacity: 0.95;">This is what a real module overview file looks like. Notice how it links to <strong>transcriptions of lecture videos</strong> and required readings—creating a knowledge graph Claude can navigate:</p>
+                <p style="font-size: 1.05rem; margin-bottom: 1.5rem; opacity: 0.95;">Here's a complete module file. Notice the links to lecture video <em>transcriptions</em> (created by Scriber Pro) and readings:</p>
 
                 <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; max-height: 500px; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
                     <div style="background: rgba(249, 115, 22, 0.2); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3); position: sticky; top: 0;">
@@ -504,21 +505,30 @@
                 </div>
 
                 <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem;">
-                    <h4 style="color: white; margin-top: 0; font-size: 1.2rem;">🎯 Example Query You Can Ask Claude:</h4>
-                    <p style="margin: 0.5rem 0; font-size: 0.95rem; opacity: 0.95;">"<em>The professor said he was reading from chapter 3 in his lecture video. Can you find that transcription here and tell me which specific parts he discussed?</em>"</p>
+                    <h4 style="color: white; margin-top: 0; font-size: 1.2rem;">What You Can Ask:</h4>
+                    <p style="margin: 0.5rem 0; font-style: italic; opacity: 0.95;">"The professor mentioned Zhuangzi's view on death in the lecture—what exactly did he say and how does it connect to the reading?"</p>
 
-                    <p style="margin: 1.5rem 0 0.5rem 0; font-weight: 600;">What Claude does:</p>
-                    <ol style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem; opacity: 0.95; line-height: 1.6;">
-                        <li>Reads the Module Overview.md file you're asking from</li>
-                        <li>Follows the link to the lecture video transcription</li>
-                        <li>Searches the transcription for mentions of "chapter 3"</li>
-                        <li>Cross-references with the actual chapter 3 reading file</li>
-                        <li>Tells you exactly which pages/sections the professor covered</li>
-                    </ol>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Claude follows the link to the lecture video transcription, finds the relevant section, cross-references with the reading file, and synthesizes an answer using your professor's actual words.</p>
                 </div>
             </div>
 
-            <p style="font-size: 1.05rem; margin-top: 2rem;"><strong>The key insight:</strong> Each .md file is an index that points to your actual course materials. Claude reads the index, follows the links, and synthesizes information across all connected files. That's how it can answer questions like "connect what the professor said in lecture 3 with the reading from chapter 5" — it literally navigates your file system like a knowledge graph.</p>
+            <p style="font-size: 1.05rem; margin-top: 2rem;"><strong>The key:</strong> Each .md file is an index pointing to your actual materials. Claude reads it, follows links, and navigates your file system like a knowledge graph.</p>
+
+            <!-- The Real Work -->
+            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 2.5rem; border-radius: 16px; margin: 3rem 0;">
+                <h3 style="color: white; margin-top: 0; font-size: 1.6rem; margin-bottom: 1.5rem;">💡 What's Actually Happening Here</h3>
+
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95;"><strong>The primary work you're doing isn't spending 6 hours passively watching lectures filled with 75% filler content.</strong></p>
+
+                <p style="margin-bottom: 1.5rem; opacity: 0.95;">The primary work is <em>creating your .md files</em>—deciding which materials connect, how concepts relate, what questions to ask. That's the actual intellectual labor.</p>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                    <p style="margin: 0 0 1rem 0; font-weight: 600; font-size: 1.05rem;">Don't feel bad about this.</p>
+                    <p style="margin: 0; opacity: 0.95;">There's deep educational value in <strong>data collecting</strong> (organizing, structuring, mapping relationships) just as much as in data cramming (consuming content). When you build a knowledge graph by linking transcriptions to readings to discussions, you're doing the cognitive work of understanding how ideas connect—which is the whole point of education.</p>
+                </div>
+
+                <p style="margin: 1.5rem 0 0 0; font-size: 0.9rem; opacity: 0.85;">Read more: <a href="https://phdinahundredsteps.com/2014/08/05/data-collecting-gathering-or-generating/" target="_blank" style="color: #fde047; text-decoration: underline;">The Educational Value of Data Collecting</a></p>
+            </div>
         </section>
 
         <!-- The 5 Steps -->
