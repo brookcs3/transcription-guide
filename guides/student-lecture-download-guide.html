@@ -254,6 +254,10 @@
             <ul>
                 <li><a href="#problem">The Problem</a></li>
                 <li><a href="#what-you-get">What This Unlocks</a></li>
+                <li><a href="#terminal-intro">The Terminal (It's Not Scary)</a></li>
+                <li><a href="#installing-claude">Getting Claude Code</a></li>
+                <li><a href="#hello-claude">Your First Conversation</a></li>
+                <li><a href="#md-files-magic">The Real Magic: .md Files</a></li>
                 <li><a href="#workflow">The Five-Step Workflow</a></li>
                 <li><a href="#implementation">Start to Finish: Implementation</a></li>
                 <li><a href="#fine-print">The Fine Print</a></li>
@@ -302,6 +306,139 @@
             </div>
         </section>
 
+        <!-- Terminal Introduction: Not Scary -->
+        <section id="terminal-intro" class="content-section" style="margin: 4rem 0;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">First Things First: The Terminal (It's Not Scary)</h2>
+
+            <p style="font-size: 1.15rem;">If you've never used a terminal before, here's the truth: <strong>it's just a text-based way to talk to your computer.</strong> That's it.</p>
+
+            <p>Instead of clicking on folders and files, you type commands. Why? Because for what we're doing—processing transcripts, organizing materials, running AI agents—it's actually faster and more powerful than clicking around.</p>
+
+            <div style="background: linear-gradient(135deg, #f97316 0%, #fb923c 100%); color: white; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">What You'll Actually Do</h3>
+                <p style="margin-bottom: 0.5rem;">Open Terminal (Mac: CMD+Space, type "Terminal")</p>
+                <p style="margin-bottom: 0.5rem;">Type a few commands</p>
+                <p style="margin: 0;">Talk to Claude</p>
+            </div>
+
+            <p>That's genuinely it. You're not hacking the mainframe. You're organizing study materials.</p>
+        </section>
+
+        <!-- Installing Claude -->
+        <section id="installing-claude" class="content-section" style="margin: 4rem 0;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Getting Claude Code</h2>
+
+            <p><strong>Claude Code</strong> is Anthropic's official CLI tool. You need a Claude Pro membership ($20/month) to use it.</p>
+
+            <h3 style="margin-top: 2rem;">Installation</h3>
+            <p>Open your terminal and run this:</p>
+
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">terminal</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;"><span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">npm</span> install -g @anthropic-ai/claude-code</pre>
+            </div>
+
+            <p>Then authenticate with your Claude account:</p>
+
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">terminal</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;"><span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">claude</span> auth</pre>
+            </div>
+
+            <p>It'll open a browser window. Log in. Done.</p>
+        </section>
+
+        <!-- Hello Claude -->
+        <section id="hello-claude" class="content-section" style="margin: 4rem 0;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Your First Conversation</h2>
+
+            <p>Navigate to your course folder and start Claude:</p>
+
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">terminal</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;"><span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">cd</span> <span style="color: #fde047;">"/Users/yourname/Documents/FALL 2025/CS_321"</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">claude</span></pre>
+            </div>
+
+            <p>Claude starts. You can talk to it:</p>
+
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">claude session</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.95rem; line-height: 1.7;"><span style="color: #94a3b8;">You:</span> <span style="color: #e2e8f0;">Hello! Can you see the files in this folder?</span>
+
+<span style="color: #fb923c;">Claude:</span> <span style="color: #cbd5e1;">Yes! I can see your course structure. You have:</span>
+<span style="color: #cbd5e1;">- Module 1 with 3 lecture transcripts</span>
+<span style="color: #cbd5e1;">- Module 2 with 2 lecture transcripts</span>
+<span style="color: #cbd5e1;">- A .claude/agents folder</span>
+
+<span style="color: #cbd5e1;">What would you like to work on?</span></pre>
+            </div>
+
+            <p>That's it. You just talked to an AI that can read, analyze, and synthesize all your course materials.</p>
+        </section>
+
+        <!-- The Real Magic: .md Files -->
+        <section id="md-files-magic" class="content-section" style="margin: 4rem 0;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">The Real Magic: .md Files (Not Prompts)</h2>
+
+            <p style="font-size: 1.15rem;"><strong>Here's what most people get wrong:</strong> They think the prompt is the magic. It's not.</p>
+
+            <p>The magic is in the <strong>.md files you create.</strong> These are plain text files that contain your course materials—transcripts, notes, assignments, readings—and most importantly, <strong>links to other related files.</strong></p>
+
+            <h3 style="margin-top: 2.5rem;">How It Works</h3>
+
+            <p>You create markdown files that reference other files in your system using absolute paths:</p>
+
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">Module 1 - Overview.md</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7;"><span style="color: #a5f3fc;"># Module 1 - Overview</span>
+
+<span style="color: #cbd5e1;">This module covers networking fundamentals.</span>
+
+<span style="color: #cbd5e1;">## Lecture Transcripts</span>
+
+<span style="color: #cbd5e1;">- [Lecture 1: Introduction]</span>
+
+  <span style="color: #fde047;">'/Users/yourname/Documents/CS_321/Module_1/Lecture01_Intro.txt'</span>
+
+<span style="color: #cbd5e1;">- [Lecture 2: Network Architecture]</span>
+
+  <span style="color: #fde047;">'/Users/yourname/Documents/CS_321/Module_1/Lecture02_Architecture.txt'</span>
+
+<span style="color: #cbd5e1;">## Assignments</span>
+
+<span style="color: #cbd5e1;">- [Lab 1: Wireshark]</span>
+
+  <span style="color: #fde047;">'/Users/yourname/Documents/CS_321/Module_1/Lab1_Instructions.md'</span></pre>
+            </div>
+
+            <p><strong>Why this matters:</strong> When you ask Claude a question, it doesn't just read one file. It follows the links. It reads the transcripts referenced in your overview. It reads the lab instructions. It builds a complete understanding of how concepts connect.</p>
+
+            <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 2rem 0;">
+                <h3 style="color: #92400e; margin-top: 0;">Example: Real Student Workflow</h3>
+                <p style="margin-bottom: 1rem; color: #78350f;"><strong>Student:</strong> "Explain how packet switching works and connect it to what we learned about network delays."</p>
+                <p style="color: #78350f;"><strong>What Claude does:</strong></p>
+                <ol style="margin: 0.5rem 0 0 1.5rem; color: #78350f;">
+                    <li>Reads Module 1 Overview.md</li>
+                    <li>Follows link to Lecture 3 transcript (packet switching)</li>
+                    <li>Follows link to Lecture 5 transcript (delays)</li>
+                    <li>Synthesizes explanation using your professor's actual terminology</li>
+                </ol>
+            </div>
+
+            <p>This is why the folder structure from earlier matters. This is why file naming matters. This is why linking matters. <strong>You're not just organizing files—you're building a knowledge graph that AI can navigate.</strong></p>
+        </section>
+
         <!-- The 5 Steps -->
         <section id="workflow" class="content-section">
             <h2>The Five-Step Workflow</h2>
@@ -311,9 +448,9 @@
                 <span style="background: #667eea; color: white; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 1.2rem;">1</span>
                 Download the Videos
             </h3>
-            <p>Universities stream lectures as M3U8 files—you can watch but not download. <strong><a href="https://qooly.com/" target="_blank" style="color: #667eea;">Qooly</a></strong> (free Chrome extension) captures them as standard MP4 files.</p>
+            <p>Most universities stream lectures in a format you can watch but not download (M3U8 files). <strong><a href="https://qooly.com/" target="_blank" style="color: #667eea;">Qooly</a></strong> is a free Chrome extension that captures them as regular MP4 files you can keep.</p>
 
-            <p><strong>Process:</strong> Install extension → Navigate to lecture → Hit play → Qooly downloads it. Queue multiple lectures for overnight batch downloads.</p>
+            <p><strong>How it works:</strong> Install the extension, navigate to your lecture page, hit play, and Qooly grabs it. You can queue up a whole week's lectures and let them download overnight.</p>
 
             <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; margin: 1.5rem 0;">
                 <p style="margin: 0;"><strong>File naming:</strong> <code>CS372_Lecture05_Network_Metrics.mp4</code> makes everything else easier.</p>
@@ -324,26 +461,73 @@
                 <span style="background: #667eea; color: white; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 1.2rem;">2</span>
                 Transcribe with Scriber Pro
             </h3>
-            <p><strong>This is the linchpin.</strong> Scriber Pro transforms hours of video into AI-ready text in minutes.</p>
+            <p><strong>This is the critical step.</strong> Scriber Pro turns hours of video into searchable text. Without this, none of the AI stuff works.</p>
+
+            <!-- Scriber Pro Demo Video -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 16px; margin: 2rem 0;">
+                <h4 style="color: white; margin-top: 0; font-size: 1.3rem; margin-bottom: 1rem;">See How Easy It Is (30 seconds)</h4>
+                <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+                    <video
+                        controls
+                        style="width: 100%; height: auto; display: block; background: #000;"
+                        poster="https://scriberpro.cc/assets/video-poster.jpg">
+                        <source src="https://scriberpro.cc/ScriberPro.mp4" type="video/mp4">
+                        Your browser doesn't support video playback. <a href="https://scriberpro.cc/ScriberPro.mp4" style="color: #fff;">Watch the demo here</a>.
+                    </video>
+                </div>
+                <p style="color: white; margin: 1rem 0 0 0; font-size: 0.95rem; opacity: 0.95;">Watch a real transcription in action. Drag, drop, done.</p>
+            </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
                 <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb;">
                     <h4 style="margin-top: 0; color: #667eea;">Offline Processing</h4>
-                    <p style="margin: 0; font-size: 0.95rem;">Everything stays on your Mac. No cloud uploads, no privacy concerns.</p>
+                    <p style="margin: 0; font-size: 0.95rem;">Everything stays on your Mac. No uploading course materials to random servers.</p>
                 </div>
                 <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb;">
                     <h4 style="margin-top: 0; color: #667eea;">Batch Operations</h4>
-                    <p style="margin: 0; font-size: 0.95rem;">Process 30+ hours overnight. Set it and forget it.</p>
+                    <p style="margin: 0; font-size: 0.95rem;">Queue up 30+ hours, run it overnight. Wake up to searchable transcripts.</p>
                 </div>
                 <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb;">
                     <h4 style="margin-top: 0; color: #667eea;">One-Time Cost</h4>
-                    <p style="margin: 0; font-size: 0.95rem;">$3.99 total. Not per minute. Not per month. Ever.</p>
+                    <p style="margin: 0; font-size: 0.95rem;">$3.99 total. Not per file. Not per month. Buy it once, use it forever.</p>
                 </div>
             </div>
 
-            <p><strong>Process:</strong> Open Scriber Pro → Select lecture files → Choose TXT output → Hit transcribe. A 90-minute lecture finishes in 6-8 minutes on Apple Silicon.</p>
+            <p><strong>The process:</strong> Open Scriber Pro, drag in your lecture videos, select TXT as output format, hit transcribe. A 90-minute lecture processes in about 6-8 minutes on an M1/M2 Mac.</p>
 
             <p><strong>Output:</strong> <code>CS372_Lecture05_Network_Metrics.txt</code> appears next to the MP4, ready for AI processing.</p>
+
+            <!-- Why Scriber Pro is the Bridge -->
+            <div style="background: #fffbeb; border: 2px solid #f59e0b; padding: 2rem; border-radius: 12px; margin: 3rem 0;">
+                <h4 style="margin-top: 0; color: #92400e; font-size: 1.4rem;">🔑 Why Scriber Pro is the Bridge to Everything Else</h4>
+
+                <p style="color: #78350f; font-size: 1.05rem;">Here's the fundamental problem: <strong>Claude can't read video.</strong> No AI can. Video is just pixels and audio waves. AI needs <em>text</em>.</p>
+
+                <p style="color: #78350f;">Scriber Pro is the translator. It takes your lecture videos—whatever format they're in (MP4, MOV, M4V, whatever)—and turns the spoken words into plain text files that Claude can actually read.</p>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <p style="margin: 0 0 1rem 0; color: #92400e; font-weight: 600;">The transformation:</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; font-family: 'SF Mono', Monaco, 'Courier New', monospace; flex-wrap: wrap;">
+                        <div style="background: #667eea; color: white; padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">
+                            Lecture_05.mp4<br>
+                            <span style="opacity: 0.8; font-size: 0.75rem;">(Claude: ❌ Can't read)</span>
+                        </div>
+                        <div style="color: #f97316; font-size: 1.5rem; font-weight: bold;">→</div>
+                        <div style="background: #10b981; color: white; padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">
+                            Scriber Pro
+                        </div>
+                        <div style="color: #f97316; font-size: 1.5rem; font-weight: bold;">→</div>
+                        <div style="background: #f97316; color: white; padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">
+                            Lecture_05.txt<br>
+                            <span style="opacity: 0.9; font-size: 0.75rem;">(Claude: ✅ Can read)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: #78350f;"><strong>Without Scriber Pro, this entire workflow is impossible.</strong> You can't link to video files in your .md files and expect Claude to understand them. You can't search video. You can't ask AI to synthesize concepts from video. The video has to become text first.</p>
+
+                <p style="color: #78350f; margin: 0;">That's why this step isn't optional. Scriber Pro is the bottleneck—in a good way. Everything downstream depends on it converting your lectures from unsearchable video into AI-readable text.</p>
+            </div>
 
             <!-- Step 3 -->
             <h3 style="font-size: 1.8rem; margin-top: 3rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e5e7eb; display: flex; align-items: center; gap: 1rem;">
@@ -352,22 +536,44 @@
             </h3>
             <p>Folder structure determines how AI agents understand your courses. Do it right once.</p>
 
-            <p><strong>Real example from CS coursework:</strong></p>
-            <div style="background: #1e1e1e; color: #d4d4d4; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 1.5rem 0;">
-                <pre style="margin: 0; color: #d4d4d4;">FALL 2025/
-└── INTRO TO THEORY OF COMPUTATION (CS_321_400_F2025)/
-    ├── .claude/agents/
-    │   └── document-quiz-ingestor.md
-    ├── Module 1 - mathematical preliminaries, DFA, JFLAP/
-    │   ├── CS321_Lecture01_Introduction.txt
-    │   ├── CS321_Lecture02_Mathematical_Preliminaries.txt
-    │   └── CS321_Lecture03_DFA_Basics.txt
-    ├── Module 2 - non-deterministic finite automata/
-    │   ├── CS321_Lecture04_NFA_Introduction.txt
-    │   └── CS321_Lecture05_NFA_to_DFA_Conversion.txt
-    └── Module 3 - regular expressions, regular grammars/
-        ├── CS321_Lecture06_Regular_Expressions.txt
-        └── CS321_Lecture07_Regular_Grammars.txt</pre>
+            <p><strong>Here's how to actually do it:</strong></p>
+
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">terminal</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7;"><span style="color: #94a3b8;"># Create course folder</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">cd</span> <span style="color: #fde047;">"~/Documents/FALL 2025"</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">mkdir</span> <span style="color: #fde047;">"CS_321"</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">cd</span> CS_321
+
+<span style="color: #94a3b8;"># Create module folders</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">mkdir</span> <span style="color: #fde047;">"Module 1"</span> <span style="color: #fde047;">"Module 2"</span> <span style="color: #fde047;">"Module 3"</span>
+
+<span style="color: #94a3b8;"># Move your transcripts into the right modules</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">mv</span> CS321_Lecture01*.txt <span style="color: #fde047;">"Module 1/"</span>
+<span style="color: #fb923c;">$</span> <span style="color: #a5f3fc;">mv</span> CS321_Lecture02*.txt <span style="color: #fde047;">"Module 1/"</span></pre>
+            </div>
+
+            <p><strong>What you end up with:</strong></p>
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">folder structure</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7;"><span style="color: #fde047;">FALL 2025/</span>
+<span style="color: #cbd5e1;">└──</span> <span style="color: #fde047;">CS_321/</span>
+    <span style="color: #cbd5e1;">├──</span> <span style="color: #a5f3fc;">.claude/agents/</span>
+    <span style="color: #cbd5e1;">│   └──</span> document-quiz-ingestor.md
+    <span style="color: #cbd5e1;">├──</span> <span style="color: #fde047;">Module 1/</span>
+    <span style="color: #cbd5e1;">│   ├──</span> CS321_Lecture01_Introduction.txt
+    <span style="color: #cbd5e1;">│   ├──</span> CS321_Lecture02_Math_Prelim.txt
+    <span style="color: #cbd5e1;">│   └──</span> CS321_Lecture03_DFA_Basics.txt
+    <span style="color: #cbd5e1;">├──</span> <span style="color: #fde047;">Module 2/</span>
+    <span style="color: #cbd5e1;">│   ├──</span> CS321_Lecture04_NFA_Intro.txt
+    <span style="color: #cbd5e1;">│   └──</span> CS321_Lecture05_NFA_to_DFA.txt
+    <span style="color: #cbd5e1;">└──</span> <span style="color: #fde047;">Module 3/</span>
+        <span style="color: #cbd5e1;">├──</span> CS321_Lecture06_Regex.txt
+        <span style="color: #cbd5e1;">└──</span> CS321_Lecture07_Grammars.txt</pre>
             </div>
 
             <p><strong>Why this works:</strong> AI agents can process by module, course, or entire semester. The hierarchy mirrors how concepts build.</p>
@@ -389,21 +595,24 @@
             </ul>
 
             <p><strong>Example agent configuration</strong> (real CS student workflow):</p>
-            <div style="background: #1e1e1e; color: #d4d4d4; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 1.5rem 0;">
-                <pre style="margin: 0; color: #d4d4d4;">KNOWLEDGE STRUCTURING:
-- Organize information into logical knowledge clusters
-- Create mental maps of concept relationships and dependencies
-- Identify cause-and-effect relationships, comparisons, contrasts
+            <div style="background: #2d2d2d; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid #f97316; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);">
+                <div style="background: rgba(249, 115, 22, 0.1); padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid rgba(249, 115, 22, 0.3);">
+                    <span style="color: #94a3b8; font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 0.85rem;">.claude/agents/document-quiz-ingestor.md</span>
+                </div>
+                <pre style="margin: 0; font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7;"><span style="color: #a5f3fc;">KNOWLEDGE STRUCTURING:</span>
+<span style="color: #cbd5e1;">- Organize information into logical knowledge clusters</span>
+<span style="color: #cbd5e1;">- Create mental maps of concept relationships</span>
+<span style="color: #cbd5e1;">- Identify cause-and-effect, comparisons, contrasts</span>
 
-QUIZ RECALL READINESS:
-- Answer questions from basic recall to complex analysis
-- Provide accurate, complete answers with appropriate detail
-- Cite specific lectures or sections when relevant
+<span style="color: #a5f3fc;">QUIZ RECALL READINESS:</span>
+<span style="color: #cbd5e1;">- Answer questions from basic recall to complex analysis</span>
+<span style="color: #cbd5e1;">- Provide accurate, complete answers with detail</span>
+<span style="color: #cbd5e1;">- Cite specific lectures or sections when relevant</span>
 
-CROSS-DOCUMENT SYNTHESIS:
-- Track how concepts evolve across multiple lectures
-- Identify when different lectures discuss related topics
-- Build comprehensive understanding from distributed information</pre>
+<span style="color: #a5f3fc;">CROSS-DOCUMENT SYNTHESIS:</span>
+<span style="color: #cbd5e1;">- Track how concepts evolve across lectures</span>
+<span style="color: #cbd5e1;">- Identify when lectures discuss related topics</span>
+<span style="color: #cbd5e1;">- Build comprehensive understanding from distributed info</span></pre>
             </div>
 
             <p><strong>Real use case:</strong> "Explain all instances where the professor discussed NP-completeness and connect to reduction techniques." The agent searches transcripts from Lectures 3, 7, 9, and 14, then synthesizes a comprehensive answer.</p>
@@ -491,18 +700,18 @@ CROSS-DOCUMENT SYNTHESIS:
             <p><strong>With this workflow:</strong> Text search finds anything instantly. AI synthesis generates study materials in minutes.</p>
             <p><strong>Setup investment:</strong> 4-6 hours per semester. Pays back in efficiency every single week.</p>
 
-            <h3>Scriber Pro is the Linchpin</h3>
-            <p>Without Scriber Pro, this workflow collapses. Video stays unsearchable. AI tools can't touch it. You're stuck re-watching footage.</p>
+            <h3>Scriber Pro is Non-Negotiable</h3>
+            <p>I'm going to be blunt: without Scriber Pro, this whole thing falls apart. Video stays video. AI can't read it. You're stuck scrubbing through hours of footage looking for one explanation.</p>
 
-            <p><strong>What makes it essential:</strong></p>
+            <p><strong>Why Scriber Pro specifically:</strong></p>
             <ul>
-                <li><strong>Scale:</strong> Batch process 30+ hours without per-file costs</li>
-                <li><strong>Privacy:</strong> Offline processing keeps course materials local (critical for academic policies)</li>
-                <li><strong>Cost:</strong> $3.99 one-time vs. $450+ for cloud transcription (30-hour semester at $0.25/minute)</li>
-                <li><strong>Accuracy:</strong> Handles academic vocabulary and technical terminology</li>
+                <li><strong>Scale:</strong> Process an entire semester (30+ hours) for $3.99. Cloud services would cost you $450+ at $0.25/minute.</li>
+                <li><strong>Privacy:</strong> Everything happens offline on your Mac. No uploading lectures to third-party servers (which often violates university policies).</li>
+                <li><strong>Accuracy:</strong> It actually handles technical terminology. "Dijkstra's algorithm" doesn't become "deck straw's algorithm."</li>
+                <li><strong>Batch processing:</strong> Queue everything up, let it run overnight. Done.</li>
             </ul>
 
-            <p>Alternative approaches introduce prohibitive costs, privacy concerns, or time requirements that break workflow viability. Scriber Pro addresses all three simultaneously.</p>
+            <p>Other approaches either cost too much, violate privacy policies, or take forever. Scriber Pro solves all three problems for less than a cup of coffee.</p>
         </section>
 
         <!-- Call to Action -->
